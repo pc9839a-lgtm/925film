@@ -78,6 +78,15 @@ input, select, textarea, button { font-family: inherit; }
   justify-content: flex-end;
   gap: 4px;
 }
+.header-nav .nav-track,
+.header-nav .nav-group {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 4px;
+}
+.header-nav .nav-duplicate { display: none; }
+
 .header-nav a {
   min-height: 40px;
   padding: 0 13px;
@@ -1322,4 +1331,401 @@ body.is-contact-visible .floating {
     padding: 0 10px;
     font-size: 12.5px;
   }
+}
+
+
+/* =========================================================
+  v20260511-07 모바일 전용 최적화 패치
+  - PC 스타일은 건드리지 않습니다.
+  - 모바일 상단 메뉴는 자동으로 옆으로 흐르는 marquee 방식입니다.
+  - 모바일에서 세로 길이가 너무 길어지지 않도록 일부 카드 영역을 압축했습니다.
+  - 전체 섹션을 전부 슬라이드로 바꾸지 않고, 포트폴리오만 가로형으로 정리했습니다.
+========================================================= */
+@media (max-width: 900px) {
+  :root { --header-height: 64px; }
+
+  .site-header {
+    top: 8px;
+    width: min(calc(100% - 14px), 720px);
+    min-height: 52px;
+    padding: 7px 8px 7px 10px;
+    display: flex;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: flex-start;
+    gap: 8px;
+    border-radius: 999px;
+    overflow: hidden;
+  }
+
+  .header-logo {
+    flex: 0 0 auto;
+    padding: 0 2px 0 0;
+    font-size: 11px;
+    letter-spacing: .08em;
+    white-space: nowrap;
+    z-index: 2;
+  }
+
+  .header-nav {
+    position: relative;
+    flex: 1 1 auto;
+    min-width: 0;
+    width: auto;
+    overflow: hidden !important;
+    padding: 0;
+    mask-image: linear-gradient(90deg, transparent 0, #000 18px, #000 calc(100% - 28px), transparent 100%);
+    -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 18px, #000 calc(100% - 28px), transparent 100%);
+  }
+
+  .header-nav .nav-track {
+    width: max-content;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    animation: mobileNavFlow 26s linear infinite;
+    will-change: transform;
+  }
+
+  .header-nav .nav-group {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding-right: 6px;
+  }
+
+  .header-nav .nav-duplicate { display: flex; }
+
+  .header-nav a {
+    flex: 0 0 auto;
+    min-height: 36px;
+    padding: 0 10px;
+    font-size: 12.5px;
+    white-space: nowrap;
+    scroll-snap-align: none;
+  }
+
+  .header-nav:hover .nav-track,
+  .header-nav:focus-within .nav-track {
+    animation-play-state: paused;
+  }
+
+  @keyframes mobileNavFlow {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+}
+
+@media (max-width: 640px) {
+  :root { --header-height: 64px; }
+
+  html { scroll-padding-top: 82px; }
+
+  .section {
+    padding: 68px 16px;
+  }
+
+  .section.full {
+    min-height: 78vh;
+  }
+
+  .hero-inner {
+    padding-top: 64px;
+  }
+
+  .hero-mark {
+    min-height: 31px;
+    padding: 0 13px;
+    margin-bottom: 18px;
+    font-size: 12px;
+  }
+
+  .hero h1 {
+    font-size: clamp(52px, 18vw, 82px);
+    margin-bottom: 16px;
+  }
+
+  .hero-sub {
+    font-size: clamp(21px, 6.4vw, 30px);
+    line-height: 1.18;
+  }
+
+  .hero .hero-actions {
+    display: none !important;
+  }
+
+  .logo-marquee {
+    margin-top: 24px;
+  }
+
+  h2 {
+    font-size: clamp(30px, 9vw, 44px);
+    line-height: 1.12;
+    margin-bottom: 14px;
+  }
+
+  .lead {
+    max-width: 92%;
+    font-size: 15.5px;
+    line-height: 1.65;
+  }
+
+  .tag {
+    min-height: 30px;
+    padding: 0 12px;
+    margin-bottom: 16px;
+    font-size: 11.5px;
+  }
+
+  /* 카드 공통 압축 */
+  .feature-grid,
+  .service-grid,
+  .price-grid,
+  .process-grid,
+  .event-grid,
+  .post-grid,
+  .contact-channel-grid {
+    margin-top: 30px;
+    width: 100%;
+    gap: 10px;
+  }
+
+  .card,
+  .price-card,
+  .process-card,
+  .event-card,
+  .post-card,
+  .contact-channel {
+    padding: 22px 16px;
+    border-radius: 20px;
+  }
+
+  .card strong,
+  .price-card strong,
+  .event-card strong,
+  .post-card strong {
+    font-size: 21px;
+  }
+
+  .card p,
+  .price-card li,
+  .process-card p,
+  .event-card p,
+  .post-card p,
+  .contact-channel p {
+    font-size: 13.5px;
+    line-height: 1.55;
+  }
+
+  /* 제작분야/진행방식은 2열로 줄여 세로 길이를 줄입니다. */
+  .service-grid,
+  .process-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .service-card:last-child,
+  .process-card:last-child {
+    grid-column: 1 / -1;
+  }
+
+  .service-card,
+  .process-card {
+    min-height: 132px;
+  }
+
+  .service-card small,
+  .card small {
+    margin-bottom: 10px;
+    font-size: 10.5px;
+  }
+
+  .process-card {
+    padding: 20px 13px 18px;
+  }
+
+  .num {
+    width: 28px;
+    height: 28px;
+    margin-bottom: 10px;
+    font-size: 12px;
+  }
+
+  .process-card strong {
+    font-size: 18px;
+  }
+
+  /* 가격은 내용만 압축하고 세로형 유지 */
+  .price-section { padding-top: 64px; }
+  .price-card {
+    text-align: left;
+  }
+
+  .price-value {
+    margin-top: 8px;
+    font-size: 28px;
+  }
+
+  .price-card ul {
+    margin-top: 16px;
+    gap: 8px;
+  }
+
+  .price-note {
+    margin-top: 18px;
+    font-size: 12.5px;
+  }
+
+  /* 포트폴리오만 모바일 가로형으로 정리 */
+  .portfolio-grid {
+    display: flex;
+    width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+    gap: 12px;
+    padding: 0 2px 8px;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+
+  .portfolio-grid::-webkit-scrollbar { display: none; }
+
+  .portfolio-card {
+    flex: 0 0 82%;
+    scroll-snap-align: center;
+    border-radius: 22px;
+  }
+
+  .portfolio-media {
+    aspect-ratio: 16 / 10;
+  }
+
+  .portfolio-info {
+    padding: 20px 18px 22px;
+  }
+
+  .portfolio-info strong {
+    font-size: 22px;
+  }
+
+  .portfolio-info p {
+    font-size: 13.5px;
+  }
+
+  /* 행사·송출은 카드 3개를 짧은 정보 블록으로 */
+  .event-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .event-card {
+    min-height: auto;
+    text-align: left;
+  }
+
+  .event-card small {
+    margin-bottom: 8px;
+    font-size: 11px;
+  }
+
+  .event-link-card {
+    margin-top: 16px;
+    padding: 22px 18px;
+    border-radius: 22px;
+  }
+
+  .event-link-copy strong {
+    font-size: 22px;
+  }
+
+  .event-link-copy p {
+    font-size: 13.5px;
+  }
+
+  /* FAQ/가이드는 짧고 읽기 쉽게 */
+  .faq-list {
+    margin-top: 30px;
+    gap: 10px;
+  }
+
+  .faq-question {
+    min-height: 62px;
+    padding: 0 16px;
+  }
+
+  .faq-question span {
+    font-size: 15.5px;
+  }
+
+  .faq-answer {
+    font-size: 13.5px;
+  }
+
+  .post-card {
+    min-height: auto;
+    text-align: left;
+  }
+
+  .post-card span {
+    margin-bottom: 10px;
+  }
+
+  .post-card p {
+    margin-top: 8px;
+  }
+
+  /* 문의 영역 */
+  .contact-channel-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-channel {
+    min-height: auto;
+  }
+
+  .contact-channel strong {
+    font-size: 22px;
+  }
+
+  .form-box {
+    margin-top: 30px;
+    padding: 24px 18px;
+    border-radius: 24px;
+  }
+
+  .form-head strong {
+    font-size: 23px;
+  }
+
+  .field label {
+    font-size: 13.5px;
+  }
+
+  .field input,
+  .field select,
+  .field textarea {
+    min-height: 50px;
+    border-radius: 13px;
+    font-size: 15px;
+  }
+
+  .field textarea {
+    min-height: 104px;
+  }
+
+  .floating {
+    min-height: 52px;
+    bottom: 10px;
+  }
+}
+
+@media (max-width: 420px) {
+  .section { padding-left: 14px; padding-right: 14px; }
+  .header-logo { font-size: 10.5px; }
+  .header-nav a { min-height: 34px; padding: 0 9px; font-size: 12px; }
+  .service-grid,
+  .process-grid { gap: 8px; }
+  .service-card,
+  .process-card { min-height: 126px; }
+  .portfolio-card { flex-basis: 86%; }
 }
