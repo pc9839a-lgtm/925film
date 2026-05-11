@@ -1,5 +1,5 @@
 document.documentElement.classList.add("js-ready");
-// 925 FILM main.js v20260511-04
+// 925 FILM main.js v20260511-05
 
 const params = new URLSearchParams(window.location.search);
 
@@ -30,8 +30,9 @@ window.addEventListener("scroll", updateHeaderState, { passive: true });
 
 /* =========================================================
   하단 제작문의 버튼 제어
-  - 평소에는 강하게 보이게 유지합니다.
-  - 제작 문의폼 영역에 도착하면 중복 노출되지 않도록 자동으로 숨깁니다.
+  - 평소에는 제작문의 버튼을 보여줍니다.
+  - 제작 문의폼 영역이 화면에 들어오면 즉시 숨깁니다.
+  - IntersectionObserver가 안 먹는 환경도 대비해 scroll 계산을 같이 사용합니다.
 ========================================================= */
 const floatingCta = document.querySelector(".floating");
 const contactSection = document.getElementById("contact");
@@ -39,31 +40,35 @@ const contactSection = document.getElementById("contact");
 function setFloatingHidden(hidden) {
   if (!floatingCta) return;
   floatingCta.classList.toggle("is-hidden", Boolean(hidden));
+  document.body.classList.toggle("is-contact-visible", Boolean(hidden));
 }
 
-if (floatingCta && contactSection && "IntersectionObserver" in window) {
-  const floatingObserver = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        setFloatingHidden(entry.isIntersecting);
-      });
-    },
-    {
-      threshold: 0.22,
-      rootMargin: "0px 0px -22% 0px",
-    }
-  );
+function isContactInView() {
+  if (!contactSection) return false;
+  const rect = contactSection.getBoundingClientRect();
+  const vh = window.innerHeight || document.documentElement.clientHeight;
 
-  floatingObserver.observe(contactSection);
-} else if (floatingCta && contactSection) {
-  const updateFloatingState = () => {
-    const rect = contactSection.getBoundingClientRect();
-    const visible = rect.top < window.innerHeight * 0.78 && rect.bottom > window.innerHeight * 0.18;
-    setFloatingHidden(visible);
-  };
+  // 문의 섹션 상단이 화면 하단 쪽에 들어오기 시작하면 바로 숨김
+  return rect.top <= vh * 0.86 && rect.bottom >= vh * 0.08;
+}
+
+function updateFloatingState() {
+  setFloatingHidden(isContactInView());
+}
+
+if (floatingCta && contactSection) {
   updateFloatingState();
   window.addEventListener("scroll", updateFloatingState, { passive: true });
   window.addEventListener("resize", updateFloatingState);
+  window.addEventListener("load", updateFloatingState);
+
+  if ("IntersectionObserver" in window) {
+    const floatingObserver = new IntersectionObserver(
+      () => updateFloatingState(),
+      { threshold: [0, 0.05, 0.12, 0.22], rootMargin: "0px 0px -10% 0px" }
+    );
+    floatingObserver.observe(contactSection);
+  }
 }
 
 /* =========================================================
