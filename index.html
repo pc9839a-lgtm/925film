@@ -40,7 +40,7 @@
   <meta name="twitter:description" content="숏폼 · 웨딩 · 인터뷰 · 분양 · 맛집 영상 제작" />
   <meta name="twitter:image" content="https://925film.pages.dev/images/og-image.png?v=20260511-09" />
 
-  <link rel="stylesheet" href="./assets/css/style.css?v=20260511-09" />
+  <link rel="stylesheet" href="./assets/css/style.css?v=20260511-10" />
 </head>
 <body>
   <div class="wrap">
@@ -110,6 +110,50 @@
           <a href="#contact" class="btn point inquiry-cta">제작 문의하기</a>
           <a href="https://pf.kakao.com/_ujLxon" target="_blank" rel="noopener" class="btn kakao">카톡 실시간 상담</a>
           <a href="#portfolio" class="btn ghost">포트폴리오 보기</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+      브랜드 메시지 섹션
+      - 히어로 바로 다음에 노출되는 핵심 브랜드 문장입니다.
+      - 9 / 2 / 5 숫자와 문구만 바꾸면 전체 메시지를 쉽게 수정할 수 있습니다.
+    ========================================================== -->
+    <section class="section brand-message-section" id="brandMessage">
+      <div class="inner reveal">
+        <div class="tag">BRAND MESSAGE</div>
+        <h2>구경만 하는 영상이 아닌<br />이야기로 오래 남는 영상</h2>
+        <p class="lead">
+          925필름은 단순히 장면을 찍는 것이 아니라, 보는 사람이 기억할 수 있는 흐름과 감정을 영상으로 남깁니다.
+        </p>
+
+        <div class="brand-message-grid">
+          <article class="brand-message-card reveal-up">
+            <span class="brand-number">9</span>
+            <div>
+              <small>NOT JUST WATCHING</small>
+              <strong>구경만 하는 영상이 아닌</strong>
+              <p>스쳐 지나가는 장면보다, 이유가 남는 장면을 만듭니다.</p>
+            </div>
+          </article>
+
+          <article class="brand-message-card reveal-up">
+            <span class="brand-number">2</span>
+            <div>
+              <small>TURN INTO STORY</small>
+              <strong>이야기로</strong>
+              <p>촬영 목적과 메시지를 정리해 하나의 흐름으로 연결합니다.</p>
+            </div>
+          </article>
+
+          <article class="brand-message-card reveal-up">
+            <span class="brand-number">5</span>
+            <div>
+              <small>LASTING FILM</small>
+              <strong>오래 남는 영상</strong>
+              <p>SNS, 홈페이지, 광고 소재로 반복해서 활용할 수 있게 완성합니다.</p>
+            </div>
+          </article>
         </div>
       </div>
     </section>
@@ -203,9 +247,9 @@
             <div class="price-value">30만원~</div>
             <!-- 구성 수정 -->
             <ul>
-              <li>1개 숏폼 완성 기준</li>
+              <li>1개 영상 납품 기준</li>
               <li>분양,맛집,카페 등</li>
-              <li>기획 및 현장 촬영포함</li>
+              <li>SNS 업로드용 비율</li>
             </ul>
           </article>
 
@@ -502,27 +546,27 @@
             - 예산 항목은 제거했습니다.
           ========================================================== -->
           <div class="field">
-            <label for="name">이름 <span class="field-mark required">필수</span></label>
+            <label for="name">이름 <span class="field-mark required">(필수)</span></label>
             <input id="name" name="name" type="text" placeholder="이름" required />
           </div>
 
           <div class="field">
-            <label for="phone">연락처 <span class="field-mark required">필수</span></label>
+            <label for="phone">연락처 <span class="field-mark required">(필수)</span></label>
             <input id="phone" name="phone" type="tel" placeholder="010-0000-0000" required />
           </div>
 
           <div class="field">
-            <label for="shoot_date">촬영 예정일 <span class="field-mark required">필수</span></label>
+            <label for="shoot_date">촬영 예정일 <span class="field-mark required">(필수)</span></label>
             <input id="shoot_date" name="shoot_date" type="date" required />
           </div>
 
           <div class="field">
-            <label for="region">촬영 지역 <span class="field-mark optional">선택</span></label>
+            <label for="region">촬영 지역 <span class="field-mark optional">(선택)</span></label>
             <input id="region" name="region" type="text" placeholder="예: 서울, 경기, 인천" />
           </div>
 
           <div class="field">
-            <label for="service_type">촬영 종류 <span class="field-mark optional">선택</span></label>
+            <label for="service_type">촬영 종류 <span class="field-mark optional">(선택)</span></label>
             <select id="service_type" name="service_type">
               <option value="">선택 안 함</option>
               <option value="숏폼">숏폼</option>
@@ -536,7 +580,7 @@
           </div>
 
           <div class="field">
-            <label for="message">문의 내용 <span class="field-mark optional">선택</span></label>
+            <label for="message">문의 내용 <span class="field-mark optional">(선택)</span></label>
             <textarea id="message" name="message" placeholder="촬영 목적, 원하는 분위기, 납품 형태 등을 자유롭게 적어주세요."></textarea>
           </div>
 
@@ -560,14 +604,31 @@
     </section>
 
     <footer class="footer">
-      <strong>925 FILM</strong>
-      <p>숏폼 전문 제작 업체</p>
-      <p>숏폼 · 웨딩 · 인터뷰 · 분양 · 맛집 영상 제작</p>
+      <div class="footer-inner">
+        <strong>925 FILM</strong>
+        <p>숏폼 전문 제작 업체</p>
+        <p>숏폼 · 웨딩 · 인터뷰 · 분양 · 맛집 영상 제작</p>
+
+        <div class="footer-business" aria-label="사업자 정보">
+          <p><b>회사명</b> 피플엔트 <span>|</span> <b>대표</b> 나우진</p>
+          <p><b>사업자등록번호</b> 226-30-20828</p>
+          <p><b>이메일</b> <a href="mailto:contact@peopleent.com">contact@peopleent.com</a></p>
+          <p><b>주소</b> 인천광역시 연수구 컨벤시아대로 165, 포스코타워송도 26F 브이 828호</p>
+        </div>
+      </div>
     </footer>
 
     <a href="#contact" class="floating inquiry-cta" aria-label="제작 문의 폼으로 이동">제작 문의하기</a>
   </div>
 
-  <script src="./assets/js/main.js?v=20260511-09"></script>
+  <!-- =========================================================
+    Google Apps Script 문의폼 연동 주소
+    1) 아래 Apps Script 코드를 배포한 뒤 생성된 Web App URL을
+    2) 따옴표 안에 붙여넣으면 실제 구글시트 저장 + 이메일 알림이 작동합니다.
+  ========================================================== -->
+  <script>
+    window.NINE25_FORM_ENDPOINT = "";
+  </script>
+  <script src="./assets/js/main.js?v=20260511-10"></script>
 </body>
 </html>
