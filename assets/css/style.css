@@ -1335,11 +1335,11 @@ body.is-contact-visible .floating {
 
 
 /* =========================================================
-  v20260511-07 모바일 전용 최적화 패치
+  v20260511-08 모바일 전용 안정화 패치
   - PC 스타일은 건드리지 않습니다.
-  - 모바일 상단 메뉴는 자동으로 옆으로 흐르는 marquee 방식입니다.
-  - 모바일에서 세로 길이가 너무 길어지지 않도록 일부 카드 영역을 압축했습니다.
-  - 전체 섹션을 전부 슬라이드로 바꾸지 않고, 포트폴리오만 가로형으로 정리했습니다.
+  - 자동 슬라이드/자동 이동을 제거했습니다. 마지막 카드에서 튕기거나 버벅이지 않습니다.
+  - 모바일 상단 메뉴는 한 줄 네이티브 가로 스크롤입니다.
+  - 포트폴리오는 수동 가로 스냅 스크롤만 적용합니다.
 ========================================================= */
 @media (max-width: 900px) {
   :root { --header-height: 64px; }
@@ -1372,29 +1372,36 @@ body.is-contact-visible .floating {
     flex: 1 1 auto;
     min-width: 0;
     width: auto;
-    overflow: hidden !important;
-    padding: 0;
-    mask-image: linear-gradient(90deg, transparent 0, #000 18px, #000 calc(100% - 28px), transparent 100%);
-    -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 18px, #000 calc(100% - 28px), transparent 100%);
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+    padding: 0 12px 0 0;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: x proximity;
+    mask-image: linear-gradient(90deg, #000 0, #000 calc(100% - 26px), transparent 100%);
+    -webkit-mask-image: linear-gradient(90deg, #000 0, #000 calc(100% - 26px), transparent 100%);
   }
+
+  .header-nav::-webkit-scrollbar { display: none; }
 
   .header-nav .nav-track {
     width: max-content;
     display: flex;
     align-items: center;
     gap: 6px;
-    animation: mobileNavFlow 26s linear infinite;
-    will-change: transform;
+    animation: none !important;
+    transform: none !important;
+    will-change: auto;
   }
 
   .header-nav .nav-group {
     display: flex;
     align-items: center;
     gap: 6px;
-    padding-right: 6px;
+    padding-right: 14px;
   }
 
-  .header-nav .nav-duplicate { display: flex; }
+  .header-nav .nav-duplicate { display: none !important; }
 
   .header-nav a {
     flex: 0 0 auto;
@@ -1402,17 +1409,7 @@ body.is-contact-visible .floating {
     padding: 0 10px;
     font-size: 12.5px;
     white-space: nowrap;
-    scroll-snap-align: none;
-  }
-
-  .header-nav:hover .nav-track,
-  .header-nav:focus-within .nav-track {
-    animation-play-state: paused;
-  }
-
-  @keyframes mobileNavFlow {
-    from { transform: translateX(0); }
-    to { transform: translateX(-50%); }
+    scroll-snap-align: start;
   }
 }
 
@@ -1576,24 +1573,25 @@ body.is-contact-visible .floating {
     font-size: 12.5px;
   }
 
-  /* 포트폴리오만 모바일 가로형으로 정리 */
+  /* 포트폴리오는 자동이동 없이 수동 가로 스냅만 적용 */
   .portfolio-grid {
     display: flex;
     width: 100%;
     overflow-x: auto;
     overflow-y: hidden;
     gap: 12px;
-    padding: 0 2px 8px;
-    scroll-snap-type: x mandatory;
+    padding: 0 14px 8px 2px;
+    scroll-snap-type: x proximity;
     -webkit-overflow-scrolling: touch;
     scrollbar-width: none;
+    scroll-behavior: smooth;
   }
 
   .portfolio-grid::-webkit-scrollbar { display: none; }
 
   .portfolio-card {
     flex: 0 0 82%;
-    scroll-snap-align: center;
+    scroll-snap-align: start;
     border-radius: 22px;
   }
 
