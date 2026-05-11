@@ -6,7 +6,7 @@
 
   <title>925필름 | 숏폼 전문 제작 업체</title>
   <meta name="description" content="925필름은 숏폼 영상, 웨딩 스케치, 인터뷰, 분양, 맛집 콘텐츠를 제작하는 영상 제작 브랜드입니다." />
-  <meta name="keywords" content="925필름, 숏폼 제작, 영상 제작, 웨딩 스케치, 인터뷰 영상, 분양 영상, 맛집 영상, 릴스 제작, 쇼츠 제작" />
+  <meta name="keywords" content="925필름, 숏폼 제작, 영상 제작, 웨딩 스케치, 인터뷰 영상, 분양 영상, 맛집 영상, 릴스 제작, 쇼츠 제작, 행사영상촬영, 온라인송출, 행사운영" />
   <meta name="robots" content="index, follow" />
 
   <meta property="og:type" content="website" />
@@ -14,7 +14,7 @@
   <meta property="og:description" content="숏폼 · 웨딩 · 인터뷰 · 분양 · 맛집 영상 제작" />
   <meta property="og:image" content="https://via.placeholder.com/1200x630/0d0d0d/ffffff?text=925+FILM" />
 
-  <link rel="stylesheet" href="./assets/css/style.css?v=20260511-02" />
+  <link rel="stylesheet" href="./assets/css/style.css?v=20260511-04" />
 </head>
 <body>
   <div class="wrap">
@@ -30,8 +30,9 @@
         <a href="#price">가격정보</a>
         <a href="#portfolio">포트폴리오</a>
         <a href="#process">진행방식</a>
+        <a href="#event">행사·송출</a>
         <a href="#guide">가이드</a>
-        <a href="#contact">문의</a>
+        <a href="#contact" class="nav-inquiry">문의</a>
       </nav>
     </header>
 
@@ -64,7 +65,7 @@
         </div>
 
         <div class="hero-actions">
-          <a href="#contact" class="btn point">제작 문의</a>
+          <a href="#contact" class="btn point inquiry-cta">제작 문의하기</a>
           <a href="#portfolio" class="btn ghost">포트폴리오 보기</a>
         </div>
       </div>
@@ -288,6 +289,59 @@
       </div>
     </section>
 
+    <!-- =========================================================
+      행사·송출 섹션
+      - PeopleEnt 링크를 연결하는 영역입니다.
+      - "협력체"라는 표현 없이, 행사 운영/영상 기록/온라인 송출까지 가능한 확장 안내로 구성했습니다.
+      - 카드 문구는 아래 event-card의 strong/p 텍스트만 바꾸면 됩니다.
+      - 버튼 링크는 href="https://peopleent.com" 부분을 수정하면 됩니다.
+    ========================================================== -->
+    <section class="section light event-section" id="event">
+      <div class="inner reveal">
+        <div class="tag">EVENT & STREAMING</div>
+        <h2>행사 촬영을 넘어<br />운영과 송출까지</h2>
+        <p class="lead">
+          세미나, 포럼, 설명회, 기업행사처럼 단순 촬영만으로 끝나지 않는 현장은
+          행사 운영, 영상 기록, 온라인 송출까지 함께 안내할 수 있습니다.
+        </p>
+
+        <div class="event-grid">
+          <article class="event-card reveal-up">
+            <small>01</small>
+            <strong>행사 운영</strong>
+            <p>세미나, 포럼, 설명회, 기업행사 운영이 필요한 현장을 함께 정리합니다.</p>
+          </article>
+
+          <article class="event-card reveal-up">
+            <small>02</small>
+            <strong>영상 기록</strong>
+            <p>행사 스케치, 강연 촬영, 현장 아카이브 영상까지 목적에 맞게 남깁니다.</p>
+          </article>
+
+          <article class="event-card reveal-up">
+            <small>03</small>
+            <strong>온라인 송출</strong>
+            <p>유튜브 송출, 하이브리드 행사, 실시간 중계가 필요한 경우까지 안내합니다.</p>
+          </article>
+        </div>
+
+        <div class="event-link-card reveal-up">
+          <div class="event-link-copy">
+            <span>PEOPLEENT</span>
+            <strong>행사영상 중계 · 온라인 송출</strong>
+            <p>
+              촬영과 편집은 925필름의 방식으로, 행사 운영과 송출이 필요한 프로젝트는
+              PeopleEnt와 함께 진행합니다.
+            </p>
+          </div>
+
+          <a href="https://peopleent.com" target="_blank" rel="noopener" class="btn dark">
+            행사·송출 자세히 보기
+          </a>
+        </div>
+      </div>
+    </section>
+
     <section class="section faq-section" id="faq">
       <div class="inner reveal">
         <div class="tag">FAQ</div>
@@ -372,54 +426,44 @@
             <p>확인 후 연락드리겠습니다.</p>
           </div>
 
+          <!-- =========================================================
+            문의폼 입력 항목
+            - 필수: 이름 / 연락처 / 촬영 예정일
+            - 선택: 촬영 종류 / 문의 내용
+            - 예산 항목은 제거했습니다.
+          ========================================================== -->
           <div class="field">
-            <label for="name">이름</label>
+            <label for="name">이름 <em class="field-mark required">필수</em></label>
             <input id="name" name="name" type="text" placeholder="이름" required />
           </div>
 
           <div class="field">
-            <label for="phone">연락처</label>
+            <label for="phone">연락처 <em class="field-mark required">필수</em></label>
             <input id="phone" name="phone" type="tel" placeholder="010-0000-0000" required />
           </div>
 
           <div class="field">
-            <label for="service_type">촬영 종류</label>
-            <select id="service_type" name="service_type" required>
-              <option value="">선택</option>
+            <label for="shoot_date">촬영 예정일 <em class="field-mark required">필수</em></label>
+            <input id="shoot_date" name="shoot_date" type="date" required />
+          </div>
+
+          <div class="field">
+            <label for="service_type">촬영 종류 <em class="field-mark optional">선택</em></label>
+            <select id="service_type" name="service_type">
+              <option value="">선택 안 함</option>
               <option value="숏폼">숏폼</option>
               <option value="웨딩">웨딩</option>
               <option value="인터뷰">인터뷰</option>
               <option value="분양">분양</option>
               <option value="맛집">맛집</option>
+              <option value="행사·송출">행사·송출</option>
               <option value="기타">기타</option>
             </select>
           </div>
 
           <div class="field">
-            <label for="shoot_date">촬영 예정일</label>
-            <input id="shoot_date" name="shoot_date" type="date" />
-          </div>
-
-          <div class="field">
-            <label for="region">촬영 지역</label>
-            <input id="region" name="region" type="text" placeholder="예: 서울, 경기, 인천" />
-          </div>
-
-          <div class="field">
-            <label for="budget">예산</label>
-            <select id="budget" name="budget">
-              <option value="">선택</option>
-              <option value="30만원 이하">30만원 이하</option>
-              <option value="30만~50만원">30만~50만원</option>
-              <option value="50만~100만원">50만~100만원</option>
-              <option value="100만원 이상">100만원 이상</option>
-              <option value="아직 모름">아직 모름</option>
-            </select>
-          </div>
-
-          <div class="field">
-            <label for="message">문의 내용</label>
-            <textarea id="message" name="message" placeholder="촬영 내용"></textarea>
+            <label for="message">문의 내용 <em class="field-mark optional">선택</em></label>
+            <textarea id="message" name="message" placeholder="촬영 목적, 원하는 분위기, 납품 형태 등을 자유롭게 적어주세요."></textarea>
           </div>
 
           <div class="hidden-fields">
@@ -435,7 +479,7 @@
             <span>개인정보 수집 및 이용에 동의합니다.</span>
           </label>
 
-          <button type="submit" class="submit">문의 남기기</button>
+          <button type="submit" class="submit">제작 문의 남기기</button>
           <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
         </form>
       </div>
@@ -447,9 +491,9 @@
       <p>숏폼 · 웨딩 · 인터뷰 · 분양 · 맛집 영상 제작</p>
     </footer>
 
-    <a href="#contact" class="floating">제작 문의</a>
+    <a href="#contact" class="floating inquiry-cta" aria-label="제작 문의 폼으로 이동">제작 문의하기</a>
   </div>
 
-  <script src="./assets/js/main.js?v=20260511-02"></script>
+  <script src="./assets/js/main.js?v=20260511-04"></script>
 </body>
 </html>
