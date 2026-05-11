@@ -1,3 +1,5 @@
+document.documentElement.classList.add("js-ready");
+
 const params = new URLSearchParams(window.location.search);
 
 function setHiddenValue(id, value) {
