@@ -1,5 +1,5 @@
 document.documentElement.classList.add("js-ready");
-// 925 FILM main.js v20260511-07
+// 925 FILM main.js v20260511-08
 
 const params = new URLSearchParams(window.location.search);
 
@@ -157,59 +157,3 @@ if (form) {
     }, 1800);
   });
 }
-
-
-/* =========================================================
-  v20260511-07 모바일 포트폴리오 자동 슬라이드
-  - 모바일에서만 포트폴리오 영역을 아주 천천히 옆으로 이동시켜 세로 길이를 줄인 구성을 보완합니다.
-  - 사용자가 터치/드래그하면 자동 이동을 잠시 멈춥니다.
-========================================================= */
-(function initMobilePortfolioAutoSlide() {
-  const scroller = document.querySelector(".portfolio-grid");
-  if (!scroller) return;
-
-  const mediaQuery = window.matchMedia("(max-width: 640px)");
-  let timer = null;
-  let paused = false;
-
-  function stop() {
-    if (timer) window.clearInterval(timer);
-    timer = null;
-  }
-
-  function start() {
-    stop();
-    if (!mediaQuery.matches) return;
-
-    timer = window.setInterval(() => {
-      if (paused) return;
-      const maxScroll = scroller.scrollWidth - scroller.clientWidth;
-      if (maxScroll <= 0) return;
-
-      if (scroller.scrollLeft >= maxScroll - 2) {
-        scroller.scrollTo({ left: 0, behavior: "smooth" });
-      } else {
-        scroller.scrollBy({ left: 1.25, behavior: "auto" });
-      }
-    }, 30);
-  }
-
-  ["touchstart", "pointerdown", "mouseenter", "focusin"].forEach((eventName) => {
-    scroller.addEventListener(eventName, () => { paused = true; }, { passive: true });
-  });
-
-  ["touchend", "pointerup", "mouseleave", "focusout"].forEach((eventName) => {
-    scroller.addEventListener(eventName, () => {
-      window.setTimeout(() => { paused = false; }, 1400);
-    }, { passive: true });
-  });
-
-  if (typeof mediaQuery.addEventListener === "function") {
-    mediaQuery.addEventListener("change", start);
-  } else if (typeof mediaQuery.addListener === "function") {
-    mediaQuery.addListener(start);
-  }
-
-  window.addEventListener("load", start);
-  start();
-})();
