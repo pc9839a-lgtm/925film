@@ -1,4 +1,5 @@
 document.documentElement.classList.add("js-ready");
+// 925 FILM main.js v20260511-04
 
 const params = new URLSearchParams(window.location.search);
 
@@ -26,6 +27,44 @@ function updateHeaderState() {
 
 updateHeaderState();
 window.addEventListener("scroll", updateHeaderState, { passive: true });
+
+/* =========================================================
+  하단 제작문의 버튼 제어
+  - 평소에는 강하게 보이게 유지합니다.
+  - 제작 문의폼 영역에 도착하면 중복 노출되지 않도록 자동으로 숨깁니다.
+========================================================= */
+const floatingCta = document.querySelector(".floating");
+const contactSection = document.getElementById("contact");
+
+function setFloatingHidden(hidden) {
+  if (!floatingCta) return;
+  floatingCta.classList.toggle("is-hidden", Boolean(hidden));
+}
+
+if (floatingCta && contactSection && "IntersectionObserver" in window) {
+  const floatingObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        setFloatingHidden(entry.isIntersecting);
+      });
+    },
+    {
+      threshold: 0.22,
+      rootMargin: "0px 0px -22% 0px",
+    }
+  );
+
+  floatingObserver.observe(contactSection);
+} else if (floatingCta && contactSection) {
+  const updateFloatingState = () => {
+    const rect = contactSection.getBoundingClientRect();
+    const visible = rect.top < window.innerHeight * 0.78 && rect.bottom > window.innerHeight * 0.18;
+    setFloatingHidden(visible);
+  };
+  updateFloatingState();
+  window.addEventListener("scroll", updateFloatingState, { passive: true });
+  window.addEventListener("resize", updateFloatingState);
+}
 
 /* =========================================================
   섹션 등장 애니메이션
@@ -107,7 +146,7 @@ if (form) {
 
     setTimeout(() => {
       if (submitButton) {
-        submitButton.textContent = "문의 남기기";
+        submitButton.textContent = "제작 문의 남기기";
         submitButton.disabled = false;
       }
     }, 1800);
