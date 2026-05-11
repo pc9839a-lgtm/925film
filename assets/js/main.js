@@ -1,5 +1,5 @@
 document.documentElement.classList.add("js-ready");
-// 925 FILM main.js v20260511-05
+// 925 FILM main.js v20260511-06
 
 const params = new URLSearchParams(window.location.search);
 
