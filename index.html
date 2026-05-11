@@ -14,7 +14,7 @@
   <meta property="og:description" content="숏폼 · 웨딩 · 인터뷰 · 분양 · 맛집 영상 제작" />
   <meta property="og:image" content="https://via.placeholder.com/1200x630/0d0d0d/ffffff?text=925+FILM" />
 
-  <link rel="stylesheet" href="./assets/css/style.css?v=20260511-04" />
+  <link rel="stylesheet" href="./assets/css/style.css?v=20260511-05" />
 </head>
 <body>
   <div class="wrap">
@@ -32,6 +32,7 @@
         <a href="#process">진행방식</a>
         <a href="#event">행사·송출</a>
         <a href="#guide">가이드</a>
+        <a href="https://pf.kakao.com/_ujLxon" target="_blank" rel="noopener" class="nav-kakao">카톡상담</a>
         <a href="#contact" class="nav-inquiry">문의</a>
       </nav>
     </header>
@@ -66,6 +67,7 @@
 
         <div class="hero-actions">
           <a href="#contact" class="btn point inquiry-cta">제작 문의하기</a>
+          <a href="https://pf.kakao.com/_ujLxon" target="_blank" rel="noopener" class="btn kakao">카톡 실시간 상담</a>
           <a href="#portfolio" class="btn ghost">포트폴리오 보기</a>
         </div>
       </div>
@@ -419,6 +421,32 @@
       <div class="inner reveal">
         <div class="tag">CONTACT</div>
         <h2>제작 문의</h2>
+        <p class="lead">빠른 상담은 카카오톡으로, 자세한 내용은 문의폼으로 남겨주세요.</p>
+
+        <!-- =========================================================
+          상담 채널 영역
+          - 카카오톡 채널 주소를 바꾸고 싶으면 href 값만 수정하세요.
+          - PC에서는 2개 카드가 가로 배치, 모바일에서는 세로 배치됩니다.
+        ========================================================== -->
+        <div class="contact-channel-grid reveal-up">
+          <article class="contact-channel kakao-channel">
+            <div>
+              <small>KAKAO TALK</small>
+              <strong>카톡 실시간 상담</strong>
+              <p>바로 확인이 필요한 문의는 카카오톡 채널로 남겨주세요.</p>
+            </div>
+            <a href="https://pf.kakao.com/_ujLxon" target="_blank" rel="noopener" class="channel-btn kakao-btn">카톡상담 바로가기</a>
+          </article>
+
+          <article class="contact-channel form-channel">
+            <div>
+              <small>REQUEST FORM</small>
+              <strong>제작 문의폼</strong>
+              <p>이름, 연락처, 날짜, 지역을 남기면 확인 후 연락드립니다.</p>
+            </div>
+            <a href="#inquiryForm" class="channel-btn form-btn">문의폼 작성하기</a>
+          </article>
+        </div>
 
         <form class="form-box" id="inquiryForm">
           <div class="form-head">
@@ -429,26 +457,31 @@
           <!-- =========================================================
             문의폼 입력 항목
             - 필수: 이름 / 연락처 / 촬영 예정일
-            - 선택: 촬영 종류 / 문의 내용
+            - 선택: 촬영 지역 / 촬영 종류 / 문의 내용
             - 예산 항목은 제거했습니다.
           ========================================================== -->
           <div class="field">
-            <label for="name">이름 <em class="field-mark required">필수</em></label>
+            <label for="name">이름 <span class="field-mark required">필수</span></label>
             <input id="name" name="name" type="text" placeholder="이름" required />
           </div>
 
           <div class="field">
-            <label for="phone">연락처 <em class="field-mark required">필수</em></label>
+            <label for="phone">연락처 <span class="field-mark required">필수</span></label>
             <input id="phone" name="phone" type="tel" placeholder="010-0000-0000" required />
           </div>
 
           <div class="field">
-            <label for="shoot_date">촬영 예정일 <em class="field-mark required">필수</em></label>
+            <label for="shoot_date">촬영 예정일 <span class="field-mark required">필수</span></label>
             <input id="shoot_date" name="shoot_date" type="date" required />
           </div>
 
           <div class="field">
-            <label for="service_type">촬영 종류 <em class="field-mark optional">선택</em></label>
+            <label for="region">촬영 지역 <span class="field-mark optional">선택</span></label>
+            <input id="region" name="region" type="text" placeholder="예: 서울, 경기, 인천" />
+          </div>
+
+          <div class="field">
+            <label for="service_type">촬영 종류 <span class="field-mark optional">선택</span></label>
             <select id="service_type" name="service_type">
               <option value="">선택 안 함</option>
               <option value="숏폼">숏폼</option>
@@ -462,7 +495,7 @@
           </div>
 
           <div class="field">
-            <label for="message">문의 내용 <em class="field-mark optional">선택</em></label>
+            <label for="message">문의 내용 <span class="field-mark optional">선택</span></label>
             <textarea id="message" name="message" placeholder="촬영 목적, 원하는 분위기, 납품 형태 등을 자유롭게 적어주세요."></textarea>
           </div>
 
@@ -494,6 +527,6 @@
     <a href="#contact" class="floating inquiry-cta" aria-label="제작 문의 폼으로 이동">제작 문의하기</a>
   </div>
 
-  <script src="./assets/js/main.js?v=20260511-04"></script>
+  <script src="./assets/js/main.js?v=20260511-05"></script>
 </body>
 </html>
