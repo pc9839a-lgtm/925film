@@ -96,6 +96,12 @@ input, select, textarea, button { font-family: inherit; }
   color: #fff;
   transform: translateY(-1px);
 }
+.header-nav a.nav-inquiry {
+  color: #111;
+  background: var(--point);
+  border-color: var(--point);
+  box-shadow: 0 10px 28px rgba(200,168,110,.22);
+}
 
 .section {
   padding: 118px 22px;
@@ -238,6 +244,25 @@ input, select, textarea, button { font-family: inherit; }
   color: #111;
   border-color: var(--point);
   box-shadow: 0 18px 42px rgba(200,168,110,.2);
+}
+.btn.point.inquiry-cta {
+  min-width: 210px;
+  min-height: 64px;
+  font-size: 17px;
+  position: relative;
+  overflow: visible;
+  animation: ctaGlow 2.8s ease-in-out infinite;
+}
+.btn.point.inquiry-cta::after,
+.floating.inquiry-cta::after {
+  content: "";
+  position: absolute;
+  inset: -7px;
+  border-radius: inherit;
+  border: 1px solid rgba(200,168,110,.42);
+  opacity: 0;
+  animation: ctaRing 2.8s ease-in-out infinite;
+  pointer-events: none;
 }
 .btn.ghost { background: rgba(255,255,255,.06); color: #fff; border-color: rgba(255,255,255,.13); }
 .btn.dark { background: #111; color: #fff; border-color: #111; }
@@ -605,6 +630,114 @@ h2 {
   letter-spacing: -.03em;
 }
 
+/* =========================================================
+  행사·송출 섹션
+  - PeopleEnt 연결 영역입니다.
+  - 카드 텍스트는 HTML에서 수정하고, 색감/간격은 아래 값만 조정하면 됩니다.
+========================================================= */
+.event-section {
+  background:
+    radial-gradient(circle at 88% 16%, rgba(200,168,110,.18), transparent 30%),
+    linear-gradient(180deg, #f7f5f1 0%, #ede7dc 100%);
+}
+.event-grid {
+  width: min(100%, 980px);
+  margin: 52px auto 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+.event-card {
+  min-height: 250px;
+  padding: 30px 24px;
+  border-radius: 30px;
+  background: rgba(255,255,255,.78);
+  border: 1px solid var(--line-dark);
+  box-shadow: 0 22px 70px rgba(0,0,0,.08);
+  text-align: left;
+  transition: transform .28s ease, box-shadow .28s ease, border-color .28s ease;
+}
+.event-card:hover {
+  transform: translateY(-8px);
+  border-color: rgba(200,168,110,.5);
+  box-shadow: 0 34px 90px rgba(0,0,0,.13);
+}
+.event-card small {
+  display: inline-flex;
+  width: 38px;
+  height: 38px;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 24px;
+  border-radius: 999px;
+  background: #111;
+  color: var(--point-soft);
+  font-size: 13px;
+  font-weight: 950;
+}
+.event-card strong {
+  display: block;
+  font-size: 27px;
+  line-height: 1.2;
+  letter-spacing: -.055em;
+  font-weight: 950;
+  color: #111;
+}
+.event-card p {
+  margin-top: 14px;
+  color: #666;
+  font-size: 15px;
+  line-height: 1.65;
+  letter-spacing: -.035em;
+}
+.event-link-card {
+  width: min(100%, 980px);
+  margin: 18px auto 0;
+  padding: 28px;
+  border-radius: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  text-align: left;
+  background: #111;
+  color: #fff;
+  border: 1px solid rgba(255,255,255,.12);
+  box-shadow: 0 28px 90px rgba(0,0,0,.2);
+}
+.event-link-copy span {
+  display: inline-flex;
+  margin-bottom: 12px;
+  padding: 7px 12px;
+  border-radius: 999px;
+  background: rgba(200,168,110,.16);
+  color: var(--point-soft);
+  font-size: 12px;
+  font-weight: 950;
+  letter-spacing: .08em;
+}
+.event-link-copy strong {
+  display: block;
+  font-size: clamp(24px, 3.2vw, 36px);
+  line-height: 1.18;
+  letter-spacing: -.06em;
+  font-weight: 950;
+}
+.event-link-copy p {
+  max-width: 640px;
+  margin-top: 12px;
+  color: rgba(255,255,255,.7);
+  font-size: 15px;
+  line-height: 1.65;
+  letter-spacing: -.035em;
+}
+.event-link-card .btn.dark {
+  flex: 0 0 auto;
+  background: var(--point);
+  border-color: var(--point);
+  color: #111;
+}
+
 .faq-section { padding-top: 110px; }
 .faq-list {
   width: min(100%, 780px);
@@ -739,13 +872,28 @@ h2 {
 }
 .field { margin-bottom: 14px; }
 .field label {
-  display: block;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
   margin-bottom: 8px;
   color: #222;
   font-size: 14px;
   font-weight: 850;
   letter-spacing: -.025em;
 }
+.field-mark {
+  flex: 0 0 auto;
+  padding: 4px 8px;
+  border-radius: 999px;
+  font-size: 11px;
+  line-height: 1;
+  font-style: normal;
+  font-weight: 900;
+  letter-spacing: -.02em;
+}
+.field-mark.required { background: #111; color: #fff; }
+.field-mark.optional { background: #f0ece4; color: #6e5527; }
 .field input,
 .field select,
 .field textarea {
@@ -785,18 +933,24 @@ h2 {
 .agree input { margin-top: 4px; }
 .submit {
   width: 100%;
-  min-height: 62px;
+  min-height: 66px;
   border: 0;
   border-radius: 999px;
   background: #111;
   color: #fff;
-  font-size: 17px;
+  font-size: 18px;
   font-weight: 950;
   letter-spacing: -.035em;
   cursor: pointer;
-  transition: transform .22s ease, background .22s ease;
+  box-shadow: 0 18px 42px rgba(0,0,0,.18);
+  transition: transform .22s ease, background .22s ease, box-shadow .22s ease;
+  animation: submitSoftPulse 3.4s ease-in-out infinite;
 }
-.submit:hover { transform: translateY(-3px); background: #2a2a2a; }
+.submit:hover {
+  transform: translateY(-3px);
+  background: #2a2a2a;
+  box-shadow: 0 24px 58px rgba(0,0,0,.24);
+}
 .submit:disabled { opacity: .65; cursor: not-allowed; transform: none; }
 .hidden-fields { display: none; }
 .form-status {
@@ -828,19 +982,31 @@ h2 {
   left: 50%;
   bottom: 16px;
   transform: translateX(-50%);
-  width: min(calc(100% - 28px), 390px);
-  min-height: 56px;
+  width: min(calc(100% - 28px), 420px);
+  min-height: 62px;
   display: flex;
   align-items: center;
   justify-content: center;
   border-radius: 999px;
   background: var(--point);
   color: #111;
-  font-size: 16px;
+  font-size: 17px;
   font-weight: 950;
   letter-spacing: -.035em;
-  box-shadow: 0 18px 48px rgba(0,0,0,.36);
+  box-shadow: 0 18px 48px rgba(0,0,0,.36), 0 0 0 1px rgba(255,255,255,.16) inset;
   z-index: 30;
+  transition: opacity .24s ease, transform .24s ease, visibility .24s ease, box-shadow .24s ease;
+  animation: ctaGlow 2.8s ease-in-out infinite;
+}
+.floating:hover {
+  transform: translateX(-50%) translateY(-4px);
+  box-shadow: 0 26px 70px rgba(0,0,0,.42), 0 0 0 1px rgba(255,255,255,.2) inset;
+}
+.floating.is-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: translateX(-50%) translateY(16px) scale(.98);
 }
 
 /* =========================================================
@@ -875,6 +1041,19 @@ h2 {
 @keyframes heroText {
   from { opacity: 0; transform: translateY(18px); }
   to { opacity: 1; transform: translateY(0); }
+}
+@keyframes ctaGlow {
+  0%, 100% { box-shadow: 0 18px 42px rgba(200,168,110,.2); }
+  50% { box-shadow: 0 22px 58px rgba(200,168,110,.42); }
+}
+@keyframes ctaRing {
+  0% { opacity: 0; transform: scale(.96); }
+  40% { opacity: .72; transform: scale(1.03); }
+  100% { opacity: 0; transform: scale(1.12); }
+}
+@keyframes submitSoftPulse {
+  0%, 100% { box-shadow: 0 18px 42px rgba(0,0,0,.18); }
+  50% { box-shadow: 0 22px 58px rgba(0,0,0,.26); }
 }
 
 @media (max-width: 1080px) {
@@ -913,6 +1092,7 @@ h2 {
   .feature-grid,
   .price-grid,
   .portfolio-grid,
+  .event-grid,
   .post-grid {
     grid-template-columns: 1fr;
     width: min(100%, 560px);
@@ -920,6 +1100,7 @@ h2 {
   .card,
   .post-card,
   .process-card,
+  .event-card,
   .price-card {
     min-height: auto;
   }
@@ -946,7 +1127,9 @@ h2 {
   .service-card:last-child,
   .process-card:last-child { grid-column: auto; }
   .form-box { padding: 28px 20px; border-radius: 26px; }
-  .wide-card, .card, .post-card, .process-card, .faq-item, .price-card, .portfolio-card { border-radius: 24px; }
+  .wide-card, .card, .post-card, .process-card, .faq-item, .price-card, .portfolio-card, .event-card, .event-link-card { border-radius: 24px; }
+  .event-link-card { flex-direction: column; align-items: stretch; padding: 24px 20px; }
+  .event-link-card .btn { width: 100%; }
   .faq-question { padding: 0 18px; }
   .faq-answer { padding-left: 18px; padding-right: 18px; }
   .faq-item.is-open .faq-answer { padding-left: 18px; padding-right: 18px; }
@@ -955,7 +1138,7 @@ h2 {
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
-  .logo-track, .media-empty::after, .hero .reveal.is-visible, .hero-inner.is-visible { animation: none; }
-  .btn, .submit, .card, .process-card, .post-card, .price-card, .portfolio-card, .reveal, .reveal-up { transition: none; }
+  .logo-track, .media-empty::after, .hero .reveal.is-visible, .hero-inner.is-visible, .btn.point.inquiry-cta, .floating, .floating.inquiry-cta::after, .btn.point.inquiry-cta::after, .submit { animation: none; }
+  .btn, .submit, .floating, .card, .process-card, .post-card, .price-card, .portfolio-card, .event-card, .event-link-card, .reveal, .reveal-up { transition: none; }
   .reveal, .reveal-up { opacity: 1; transform: none; }
 }
