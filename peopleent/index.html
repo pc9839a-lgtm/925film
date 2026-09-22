@@ -159,7 +159,7 @@ a{color:inherit}
 <body>
 <div class="deck" id="deck">
 
-<section class="slide active">
+<section class="slide">
   <div class="frame">
     <div class="top" data-reveal style="--d:0"><div class="wordmark">PEOPLEENT</div><div class="page">01 / 10</div></div>
     <div class="hero">
@@ -337,10 +337,11 @@ a{color:inherit}
 <div class="progress" id="progress"></div>
 
 <script>
+const deck=document.getElementById('deck');
 const slides=[...document.querySelectorAll('.slide')];
 const nav=document.getElementById('nav');
 const progress=document.getElementById('progress');
-let active=0,locked=false,touchY=null;
+let active=0;
 
 slides.forEach((_,i)=>{
   const b=document.createElement('button');
@@ -351,51 +352,45 @@ slides.forEach((_,i)=>{
 });
 const dots=[...nav.children];
 
-function render(next,dir){
-  if(next===active||next<0||next>=slides.length||locked)return;
-  locked=true;
-  const cur=slides[active], nxt=slides[next];
-  cur.classList.add(dir>0?'out-up':'');
-  cur.classList.remove('active');
-  nxt.classList.remove('out-up');
-  nxt.classList.add('active');
-  active=next;
-  dots.forEach((d,i)=>d.classList.toggle('on',i===active));
-  progress.style.width=((active+1)/slides.length*100)+'%';
-  setTimeout(()=>{
-    slides.forEach((s,i)=>{if(i!==active)s.classList.remove('out-up')});
-    locked=false;
-  },820);
+function go(i){
+  const next=Math.max(0,Math.min(slides.length-1,i));
+  slides[next].scrollIntoView({behavior:'smooth',block:'start'});
 }
-function go(i){render(i,i>active?1:-1)}
-function next(){go(active+1)}
-function prev(){go(active-1)}
+function sync(i){
+  active=i;
+  dots.forEach((d,n)=>d.classList.toggle('on',n===i));
+  progress.style.width=((i+1)/slides.length*100)+'%';
+}
 
-document.getElementById('next').onclick=next;
-document.getElementById('prev').onclick=prev;
+const observer=new IntersectionObserver(entries=>{
+  entries.forEach(entry=>{
+    const i=slides.indexOf(entry.target);
+    if(entry.isIntersecting&&entry.intersectionRatio>=0.42){
+      entry.target.classList.add('in-view');
+      sync(i);
+    }else if(entry.intersectionRatio<0.08){
+      entry.target.classList.remove('in-view');
+    }
+  });
+},{root:deck,threshold:[0,.08,.42,.7]});
 
-addEventListener('wheel',e=>{
-  if(Math.abs(e.deltaY)<18)return;
-  e.preventDefault();
-  e.deltaY>0?next():prev();
-},{passive:false});
+slides.forEach(s=>observer.observe(s));
+slides[0].classList.add('in-view');
+sync(0);
+
+document.getElementById('next').onclick=()=>go(active+1);
+document.getElementById('prev').onclick=()=>go(active-1);
 
 addEventListener('keydown',e=>{
-  if(['ArrowDown','ArrowRight','PageDown',' '].includes(e.key)){e.preventDefault();next()}
-  if(['ArrowUp','ArrowLeft','PageUp'].includes(e.key)){e.preventDefault();prev()}
+  if(['ArrowDown','ArrowRight','PageDown',' '].includes(e.key)){e.preventDefault();go(active+1)}
+  if(['ArrowUp','ArrowLeft','PageUp'].includes(e.key)){e.preventDefault();go(active-1)}
   if(e.key==='Home'){e.preventDefault();go(0)}
   if(e.key==='End'){e.preventDefault();go(slides.length-1)}
 });
 
-addEventListener('touchstart',e=>{touchY=e.touches[0].clientY},{passive:true});
-addEventListener('touchend',e=>{
-  if(touchY===null)return;
-  const dy=e.changedTouches[0].clientY-touchY;
-  if(Math.abs(dy)>45)(dy<0?next():prev());
-  touchY=null;
-},{passive:true});
-
-progress.style.width=(1/slides.length*100)+'%';
+if(matchMedia('(prefers-reduced-motion: reduce)').matches){
+  slides.forEach(s=>s.classList.add('in-view'));
+}
 </script>
 </body>
 </html>
