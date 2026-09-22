@@ -1,0 +1,391 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#07101d">
+<title>PEOPLEENT — Company Profile</title>
+<meta name="description" content="PEOPLEENT company profile presentation">
+<style>
+:root{
+  --ink:#06101d;--ink2:#0b1828;--panel:#0f2034;--line:rgba(255,255,255,.13);
+  --white:#f7f9fc;--muted:#9eacbd;--orange:#ff8b2c;--orange2:#ffb15f;--blue:#4e9fff;
+  --shadow:0 30px 90px rgba(0,0,0,.42)
+}
+*{box-sizing:border-box}
+html,body{margin:0;background:#02070d;color:var(--white);font-family:Pretendard,"Noto Sans KR",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;overflow:hidden}
+button{font:inherit}
+.deck{height:100svh;width:100vw;overflow-y:auto;scroll-snap-type:y mandatory;scroll-behavior:smooth;overscroll-behavior:none}
+.slide{position:relative;height:100svh;width:100vw;scroll-snap-align:start;overflow:hidden;background:
+radial-gradient(1100px 560px at 82% 16%,rgba(56,112,181,.20),transparent 66%),
+linear-gradient(135deg,#06101d 0%,#09192a 56%,#050c16 100%)}
+.slide::after{content:"";position:absolute;inset:0;pointer-events:none;background-image:linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);background-size:48px 48px;mask-image:linear-gradient(to bottom,rgba(0,0,0,.9),transparent 92%)}
+.inner{position:relative;z-index:3;width:min(1480px,calc(100% - 112px));height:100%;margin:auto;padding:clamp(48px,7vh,84px) 0 54px;display:flex;flex-direction:column}
+.brandbar{display:flex;align-items:center;justify-content:space-between;gap:24px}
+.brand{display:flex;align-items:center;gap:14px;font-weight:900;letter-spacing:.08em;font-size:14px}
+.brandMark{width:32px;height:32px;border:1px solid rgba(255,255,255,.25);border-radius:9px;display:grid;place-items:center;position:relative}
+.brandMark::before,.brandMark::after{content:"";position:absolute;background:var(--orange);border-radius:99px}
+.brandMark::before{width:14px;height:3px;transform:rotate(45deg)}
+.brandMark::after{width:14px;height:3px;transform:rotate(-45deg)}
+.page{font-size:12px;color:#6f8093;font-weight:800;letter-spacing:.16em}
+.kicker{margin-top:clamp(46px,8vh,92px);font-size:12px;font-weight:900;letter-spacing:.18em;color:var(--orange);text-transform:uppercase}
+h1,h2,p{margin:0}
+.display{font-size:clamp(52px,6.9vw,112px);line-height:.94;letter-spacing:-.065em;font-weight:900;max-width:1080px}
+.title{font-size:clamp(42px,5.2vw,78px);line-height:1.02;letter-spacing:-.052em;font-weight:900;max-width:1120px}
+.subtitle{margin-top:24px;color:var(--muted);font-size:clamp(17px,1.65vw,25px);line-height:1.65;max-width:900px;letter-spacing:-.022em}
+.orange{color:var(--orange)}
+.eyebrow{display:inline-flex;align-items:center;gap:10px;color:#dce8f7;font-size:13px;font-weight:800;letter-spacing:.05em}
+.eyebrow::before{content:"";width:28px;height:2px;background:var(--orange)}
+.footer{position:absolute;left:0;right:0;bottom:26px;display:flex;align-items:center;justify-content:space-between;color:#607286;font-size:11px;letter-spacing:.07em}
+.footer strong{color:#8fa1b4;font-weight:700}
+.grid2{display:grid;grid-template-columns:minmax(0,1fr) minmax(420px,.9fr);gap:72px;align-items:center;flex:1}
+.cards4{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:42px}
+.card{border:1px solid var(--line);background:linear-gradient(180deg,rgba(255,255,255,.055),rgba(255,255,255,.025));border-radius:20px;padding:24px 22px;min-height:150px;backdrop-filter:blur(12px)}
+.card .n{font-size:11px;letter-spacing:.14em;color:var(--orange);font-weight:900}
+.card h3{margin:24px 0 9px;font-size:21px;letter-spacing:-.03em}
+.card p{font-size:14px;line-height:1.55;color:var(--muted)}
+.pills{display:flex;flex-wrap:wrap;gap:10px;margin-top:30px}
+.pill{border:1px solid var(--line);background:rgba(255,255,255,.035);border-radius:999px;padding:11px 14px;font-size:13px;color:#dbe5f2}
+.pill b{color:var(--orange);margin-right:7px}
+.heroVisual{position:absolute;right:-7vw;top:4vh;width:min(56vw,940px);height:92vh;z-index:1;opacity:.94}
+.heroVisual .orb{position:absolute;right:4%;top:8%;width:72%;aspect-ratio:1;border-radius:50%;background:radial-gradient(circle at 42% 36%,rgba(76,158,255,.54),rgba(20,55,94,.18) 42%,transparent 69%);filter:blur(2px)}
+.stage{position:absolute;right:2%;bottom:8%;width:88%;height:56%;border:1px solid rgba(255,255,255,.14);border-radius:28px 28px 8px 8px;background:linear-gradient(180deg,#12263d 0,#0b1522 66%,#05090f 100%);box-shadow:var(--shadow);overflow:hidden;transform:perspective(1100px) rotateY(-5deg)}
+.stage .screen{position:absolute;left:13%;top:11%;width:65%;height:58%;border-radius:10px;background:
+radial-gradient(circle at 72% 24%,rgba(255,174,85,.95),transparent 14%),
+linear-gradient(135deg,#182f48 0,#2f689a 42%,#17263a 100%);box-shadow:0 0 80px rgba(68,150,255,.15) inset}
+.stage .screen::after{content:"LIVE  •  PEOPLEENT";position:absolute;left:7%;bottom:9%;font-size:12px;letter-spacing:.14em;font-weight:900}
+.stage .light{position:absolute;top:0;width:2px;height:100%;background:linear-gradient(to bottom,rgba(255,153,58,.95),transparent 70%);filter:blur(.2px)}
+.stage .l1{left:6%}.stage .l2{left:84%}.stage .l3{left:91%}
+.stage .person{position:absolute;left:49%;bottom:19%;width:24px;height:64px;background:#0d1116;border-radius:12px 12px 4px 4px}
+.stage .person::before{content:"";position:absolute;left:5px;top:-13px;width:14px;height:14px;border-radius:50%;background:#15191f}
+.stage .desk{position:absolute;left:0;right:0;bottom:0;height:16%;background:linear-gradient(180deg,#0b111b,#03070b)}
+.camera{position:absolute;right:16%;bottom:7%;width:95px;height:62px;border-radius:8px;background:#020508;box-shadow:-170px 10px 0 -8px #020508}
+.camera::before{content:"";position:absolute;left:-22px;top:12px;border-right:24px solid #020508;border-top:15px solid transparent;border-bottom:15px solid transparent}
+.camera::after{content:"";position:absolute;left:34px;top:58px;width:5px;height:120px;background:#020508;transform:rotate(7deg);box-shadow:-30px 0 0 #020508}
+.problemList{margin-top:34px;display:grid;gap:13px}
+.problem{display:flex;align-items:center;gap:16px;padding:16px 18px;border:1px solid var(--line);border-radius:14px;background:rgba(255,255,255,.03);font-size:15px;color:#d9e3ef}
+.dot{width:8px;height:8px;border-radius:50%;background:var(--orange);box-shadow:0 0 18px rgba(255,139,44,.8)}
+.solutionBox{position:relative;border:1px solid rgba(255,139,44,.28);background:linear-gradient(160deg,rgba(255,139,44,.12),rgba(255,255,255,.025));border-radius:30px;padding:36px;min-height:430px;box-shadow:var(--shadow);overflow:hidden}
+.solutionBox::after{content:"ONE TEAM";position:absolute;right:-10px;bottom:-30px;font-size:92px;font-weight:950;color:rgba(255,255,255,.035);letter-spacing:-.06em}
+.solutionBox h3{font-size:34px;margin:70px 0 16px;letter-spacing:-.05em}
+.solutionBox p{font-size:18px;line-height:1.65;color:var(--muted)}
+.chain{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-top:36px}
+.chain span{font-size:12px;font-weight:800;border:1px solid var(--line);padding:9px 11px;border-radius:999px;background:rgba(3,8,14,.32)}
+.chain i{width:16px;height:1px;background:#5a6b7d}
+.serviceGrid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:42px}
+.service{position:relative;min-height:178px;padding:24px;border:1px solid var(--line);border-radius:18px;background:linear-gradient(180deg,rgba(255,255,255,.055),rgba(255,255,255,.022));overflow:hidden}
+.service::before{content:"";position:absolute;left:0;top:0;width:4px;height:100%;background:var(--orange);opacity:.8}
+.service .icon{width:38px;height:38px;border-radius:10px;border:1px solid rgba(255,255,255,.14);display:grid;place-items:center;color:var(--orange);font-weight:950}
+.service h3{margin:22px 0 9px;font-size:20px}
+.service p{font-size:13px;line-height:1.55;color:var(--muted)}
+.controlRoom{position:relative;border:1px solid var(--line);border-radius:28px;background:linear-gradient(160deg,#0c1b2c,#08121f);min-height:500px;box-shadow:var(--shadow);overflow:hidden;padding:30px}
+.monitors{display:grid;grid-template-columns:1.2fr .9fr .9fr;gap:8px;height:210px}
+.monitor{position:relative;border-radius:8px;background:linear-gradient(135deg,#1c3c60,#0f1c2e);border:1px solid rgba(255,255,255,.12);overflow:hidden}
+.monitor:nth-child(2){background:linear-gradient(135deg,#56301d,#1f1620)}
+.monitor:nth-child(3){background:linear-gradient(135deg,#21334b,#101828)}
+.monitor::before{content:"";position:absolute;left:12%;right:12%;bottom:14%;height:5px;background:rgba(255,255,255,.7);box-shadow:0 -19px 0 rgba(255,255,255,.16),0 -38px 0 rgba(255,255,255,.08)}
+.monitor:first-child::after{content:"LIVE";position:absolute;right:10px;top:10px;background:#eb4b43;color:white;padding:5px 7px;border-radius:5px;font-size:9px;font-weight:900;letter-spacing:.08em}
+.switcher{margin-top:22px;border:1px solid rgba(255,255,255,.12);border-radius:14px;background:#050b12;padding:18px}
+.switchrow{display:grid;grid-template-columns:repeat(10,1fr);gap:8px;margin:8px 0}
+.key{height:20px;border-radius:5px;background:#243348;box-shadow:inset 0 -2px 0 rgba(0,0,0,.5)}
+.key.o{background:#c96f27}.key.b{background:#2c74bd}
+.signal{display:flex;justify-content:space-between;margin-top:18px;color:#74879c;font-size:10px;letter-spacing:.09em}
+.workflow{display:grid;grid-template-columns:repeat(5,1fr);gap:0;margin-top:58px;position:relative}
+.workflow::before{content:"";position:absolute;left:7%;right:7%;top:37px;height:1px;background:linear-gradient(90deg,var(--orange),#355472 70%,rgba(255,255,255,.14))}
+.step{position:relative;padding-right:24px}
+.step .circle{position:relative;z-index:2;width:74px;height:74px;border-radius:50%;display:grid;place-items:center;background:#0a1726;border:1px solid rgba(255,255,255,.17);font-weight:900;color:var(--orange);box-shadow:0 0 0 7px #07111f}
+.step h3{font-size:19px;margin:28px 0 10px}
+.step p{color:var(--muted);font-size:13px;line-height:1.55;max-width:180px}
+.audience{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:40px}
+.aBox{border:1px solid var(--line);border-radius:22px;padding:26px;background:rgba(255,255,255,.035)}
+.aBox .label{color:var(--orange);font-size:11px;font-weight:900;letter-spacing:.13em}
+.aBox h3{font-size:28px;margin:18px 0 14px;letter-spacing:-.04em}
+.aBox p{font-size:14px;line-height:1.7;color:var(--muted)}
+.collab{display:grid;grid-template-columns:1fr 110px 1fr;align-items:center;gap:28px;margin-top:50px}
+.company{border:1px solid var(--line);border-radius:26px;padding:34px;min-height:290px;background:linear-gradient(160deg,rgba(255,255,255,.055),rgba(255,255,255,.02))}
+.company .logoText{font-size:28px;font-weight:950;letter-spacing:-.04em}
+.company ul{list-style:none;margin:28px 0 0;padding:0;display:grid;gap:12px;color:var(--muted);font-size:14px}
+.company li::before{content:"—";color:var(--orange);margin-right:10px}
+.plus{width:82px;height:82px;border-radius:50%;display:grid;place-items:center;border:1px solid rgba(255,139,44,.4);background:rgba(255,139,44,.08);color:var(--orange);font-size:38px;margin:auto}
+.outputRow{display:flex;gap:10px;margin-top:26px;flex-wrap:wrap}
+.outputRow span{padding:10px 12px;border-radius:999px;background:#0a1624;border:1px solid var(--line);font-size:12px;color:#d3deeb}
+.cta{flex:1;display:flex;align-items:center}
+.ctaBox{width:100%;display:grid;grid-template-columns:1.4fr .8fr;gap:70px;align-items:end}
+.contact{border-left:1px solid var(--line);padding-left:42px;display:grid;gap:18px}
+.contact small{color:#6f8094;font-size:11px;letter-spacing:.13em;font-weight:900}
+.contact strong{font-size:26px;letter-spacing:-.035em}
+.contact a{color:inherit;text-decoration:none}
+.nav{position:fixed;z-index:50;right:28px;top:50%;transform:translateY(-50%);display:flex;flex-direction:column;gap:9px}
+.nav button{width:9px;height:9px;border-radius:50%;border:0;padding:0;background:#4c5c6d;cursor:pointer;transition:.2s}
+.nav button.active{background:var(--orange);transform:scale(1.35)}
+.controls{position:fixed;z-index:50;left:50%;bottom:18px;transform:translateX(-50%);display:flex;align-items:center;gap:8px;padding:7px;border:1px solid rgba(255,255,255,.12);border-radius:999px;background:rgba(3,8,14,.72);backdrop-filter:blur(14px)}
+.controls button{border:0;background:transparent;color:#a9b8c8;width:34px;height:34px;border-radius:50%;cursor:pointer;font-size:18px}
+.controls button:hover{background:rgba(255,255,255,.08);color:white}
+.controls .count{min-width:62px;text-align:center;font-size:11px;color:#8797aa;letter-spacing:.08em}
+.progress{position:fixed;z-index:60;left:0;bottom:0;height:3px;background:var(--orange);width:12.5%;transition:width .25s}
+@media (max-width:1000px){
+  .inner{width:min(100% - 42px,900px);padding-top:34px}
+  .grid2{grid-template-columns:1fr;gap:28px;align-content:center}
+  .heroVisual{opacity:.38;right:-35vw;width:110vw}
+  .display{max-width:780px}
+  .cards4{grid-template-columns:1fr 1fr}
+  .serviceGrid{grid-template-columns:1fr 1fr}
+  .service{min-height:145px}
+  .controlRoom{display:none}
+  .workflow{grid-template-columns:1fr 1fr;gap:18px;margin-top:34px}
+  .workflow::before{display:none}
+  .step{display:grid;grid-template-columns:60px 1fr;column-gap:14px;padding:0}
+  .step .circle{width:54px;height:54px;grid-row:span 2}
+  .step h3{margin:3px 0 4px}
+  .step p{max-width:none}
+  .collab{grid-template-columns:1fr}
+  .plus{width:54px;height:54px;font-size:28px}
+  .company{min-height:auto}
+  .ctaBox{grid-template-columns:1fr}
+  .contact{border-left:0;border-top:1px solid var(--line);padding:28px 0 0}
+  .nav{display:none}
+  .footer{display:none}
+}
+@media (max-width:640px){
+  .inner{width:calc(100% - 30px);padding:24px 0 70px}
+  .kicker{margin-top:34px}
+  .display{font-size:clamp(46px,16vw,72px)}
+  .title{font-size:clamp(34px,10vw,52px)}
+  .subtitle{font-size:15px;margin-top:18px}
+  .brand{font-size:12px}
+  .cards4,.serviceGrid,.audience{grid-template-columns:1fr;gap:10px}
+  .cards4{margin-top:24px}
+  .card,.service{min-height:auto;padding:18px}
+  .card h3,.service h3{margin-top:14px}
+  .solutionBox{min-height:auto;padding:24px}
+  .solutionBox h3{margin-top:34px;font-size:28px}
+  .workflow{grid-template-columns:1fr;gap:10px}
+  .step{border:1px solid var(--line);border-radius:14px;padding:12px;background:rgba(255,255,255,.03)}
+  .step .circle{box-shadow:none}
+  .company{padding:24px}
+  .controls{bottom:12px}
+}
+@media print{
+  html,body{overflow:visible;background:white}
+  .deck{height:auto;overflow:visible}
+  .slide{height:100vh;page-break-after:always;break-after:page}
+  .nav,.controls,.progress{display:none!important}
+}
+</style>
+</head>
+<body>
+<div class="deck" id="deck">
+
+<section class="slide" data-title="Cover">
+  <div class="heroVisual" aria-hidden="true">
+    <div class="orb"></div>
+    <div class="stage">
+      <div class="screen"></div><div class="light l1"></div><div class="light l2"></div><div class="light l3"></div>
+      <div class="person"></div><div class="desk"></div>
+    </div>
+    <div class="camera"></div>
+  </div>
+  <div class="inner">
+    <div class="brandbar"><div class="brand"><span class="brandMark"></span> PEOPLEENT</div><div class="page">COMPANY PROFILE / 2026</div></div>
+    <div class="kicker">TOTAL EVENT OPERATION</div>
+    <h1 class="display">행사는<br><span class="orange">하나의 팀</span>으로<br>움직여야 합니다.</h1>
+    <p class="subtitle">준비부터 현장 운영, 발표자료, 음향·영상, 온라인 송출, 촬영·녹화까지.<br>피플엔트가 행사 전체의 흐름을 연결합니다.</p>
+    <div class="pills"><span class="pill"><b>01</b>EVENT</span><span class="pill"><b>02</b>LIVE</span><span class="pill"><b>03</b>HYBRID</span><span class="pill"><b>04</b>RECORDING</span></div>
+    <div class="footer"><strong>PEOPLEENT × 925FILM</strong><span>01 / 08</span></div>
+  </div>
+</section>
+
+<section class="slide" data-title="Why">
+  <div class="inner">
+    <div class="brandbar"><div class="brand"><span class="brandMark"></span> PEOPLEENT</div><div class="page">WHY PEOPLEENT</div></div>
+    <div class="grid2">
+      <div>
+        <div class="eyebrow">THE PROBLEM</div>
+        <h2 class="title" style="margin-top:22px">담당자 혼자 끌어안는<br>행사는 이제 끝.</h2>
+        <p class="subtitle">행사는 여러 파트가 동시에 움직입니다. 운영이 분리될수록 담당자의 조율 비용과 현장 리스크는 커집니다.</p>
+        <div class="problemList">
+          <div class="problem"><span class="dot"></span>행사대행 · 음향 · 영상 · 송출 업체가 따로 움직임</div>
+          <div class="problem"><span class="dot"></span>발표자료, 자막, 카메라, 마이크 전환 타이밍이 분리됨</div>
+          <div class="problem"><span class="dot"></span>현장 이슈 발생 시 책임 주체와 대응 동선이 복잡해짐</div>
+        </div>
+      </div>
+      <div class="solutionBox">
+        <div class="eyebrow">PEOPLEENT SOLUTION</div>
+        <h3>한 팀이 처음부터 끝까지.</h3>
+        <p>행사 목적을 이해한 하나의 운영팀이 준비·리허설·현장·송출·녹화까지 연결해 운영합니다.</p>
+        <div class="chain"><span>기획</span><i></i><span>현장</span><i></i><span>AV</span><i></i><span>LIVE</span><i></i><span>기록</span></div>
+      </div>
+    </div>
+    <div class="footer"><strong>peopleent.com</strong><span>02 / 08</span></div>
+  </div>
+</section>
+
+<section class="slide" data-title="Services">
+  <div class="inner">
+    <div class="brandbar"><div class="brand"><span class="brandMark"></span> PEOPLEENT</div><div class="page">SERVICE SCOPE</div></div>
+    <div class="kicker">ONE-STOP EVENT SOLUTION</div>
+    <h2 class="title">현장에서 필요한 운영을<br><span class="orange">하나의 흐름</span>으로 설계합니다.</h2>
+    <div class="serviceGrid">
+      <div class="service"><div class="icon">01</div><h3>현장 운영</h3><p>세미나·포럼·심포지엄·워크숍 등 행사 진행과 운영</p></div>
+      <div class="service"><div class="icon">02</div><h3>발표자료 운영</h3><p>PPT·영상자료·세션별 화면 전환 및 발표 흐름 관리</p></div>
+      <div class="service"><div class="icon">03</div><h3>음향 · 영상</h3><p>마이크, 스피커, 프로젝션, LED, 카메라 시스템 운영</p></div>
+      <div class="service"><div class="icon">04</div><h3>YouTube LIVE</h3><p>공개 행사·포럼·세미나의 안정적인 온라인 생중계</p></div>
+      <div class="service"><div class="icon">05</div><h3>Zoom Webinar</h3><p>발표자·참석자 권한, Q&A, 화면 공유, 녹화 운영</p></div>
+      <div class="service"><div class="icon">06</div><h3>촬영 · 녹화</h3><p>행사 전체 기록, 세션별 녹화, 납품용 영상 파일 제작</p></div>
+    </div>
+    <div class="footer"><strong>Source: PEOPLEENT official service pages</strong><span>03 / 08</span></div>
+  </div>
+</section>
+
+<section class="slide" data-title="Live & Hybrid">
+  <div class="inner">
+    <div class="brandbar"><div class="brand"><span class="brandMark"></span> PEOPLEENT</div><div class="page">LIVE & HYBRID</div></div>
+    <div class="grid2">
+      <div>
+        <div class="eyebrow">LIVE STREAMING SOLUTION</div>
+        <h2 class="title" style="margin-top:22px">현장과 온라인,<br><span class="orange">따로 운영하지 않습니다.</span></h2>
+        <p class="subtitle">카메라·PPT·자막·음향·플랫폼을 하나의 송출 화면 안에서 연결하고 종료 시점까지 모니터링합니다.</p>
+        <div class="pills"><span class="pill">YouTube Live</span><span class="pill">Zoom Webinar</span><span class="pill">PPT Switch</span><span class="pill">Subtitle</span><span class="pill">Audio Mix</span><span class="pill">Recording</span></div>
+      </div>
+      <div class="controlRoom" aria-hidden="true">
+        <div class="monitors"><div class="monitor"></div><div class="monitor"></div><div class="monitor"></div></div>
+        <div class="switcher">
+          <div class="switchrow"><i class="key o"></i><i class="key"></i><i class="key"></i><i class="key b"></i><i class="key"></i><i class="key"></i><i class="key o"></i><i class="key"></i><i class="key b"></i><i class="key"></i></div>
+          <div class="switchrow"><i class="key"></i><i class="key b"></i><i class="key"></i><i class="key"></i><i class="key o"></i><i class="key"></i><i class="key"></i><i class="key b"></i><i class="key"></i><i class="key"></i></div>
+          <div class="signal"><span>CAM 01</span><span>PPT</span><span>SUBTITLE</span><span>PROGRAM OUT</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="footer"><strong>LIVE STREAMING · HYBRID EVENT</strong><span>04 / 08</span></div>
+  </div>
+</section>
+
+<section class="slide" data-title="Workflow">
+  <div class="inner">
+    <div class="brandbar"><div class="brand"><span class="brandMark"></span> PEOPLEENT</div><div class="page">WORKFLOW</div></div>
+    <div class="kicker">FROM BRIEF TO LIVE</div>
+    <h2 class="title">행사 전부터 종료까지<br>운영 흐름을 먼저 설계합니다.</h2>
+    <p class="subtitle">행사 일정·플랫폼·장소 환경·발표자료·참석자 흐름을 확인한 뒤 리허설과 실운영으로 이어집니다.</p>
+    <div class="workflow">
+      <div class="step"><div class="circle">01</div><h3>상담</h3><p>목적, 일정, 장소, 규모, 필요 범위 확인</p></div>
+      <div class="step"><div class="circle">02</div><h3>설계</h3><p>운영안, 장비, 인력, 화면 구성 확정</p></div>
+      <div class="step"><div class="circle">03</div><h3>세팅</h3><p>현장 설치, 자료 취합, 플랫폼 설정</p></div>
+      <div class="step"><div class="circle">04</div><h3>리허설</h3><p>카메라·음향·PPT·자막·네트워크 점검</p></div>
+      <div class="step"><div class="circle">05</div><h3>운영</h3><p>현장 진행, 라이브 모니터링, 녹화·납품</p></div>
+    </div>
+    <div class="footer"><strong>PRE-PRODUCTION → ON-SITE → DELIVERY</strong><span>05 / 08</span></div>
+  </div>
+</section>
+
+<section class="slide" data-title="Event Types">
+  <div class="inner">
+    <div class="brandbar"><div class="brand"><span class="brandMark"></span> PEOPLEENT</div><div class="page">EVENT TYPES</div></div>
+    <div class="kicker">PUBLIC · CORPORATE · ASSOCIATION</div>
+    <h2 class="title">발표와 정보 전달이 중요한<br>행사에 최적화된 운영.</h2>
+    <div class="audience">
+      <div class="aBox"><div class="label">CLIENT</div><h3>공공기관 · 기업 · 학회</h3><p>기관별 행정 절차, 납품 기준, 현장 설비 조건을 사전에 확인하고 행사 운영 흐름에 반영합니다.</p></div>
+      <div class="aBox"><div class="label">FORMAT</div><h3>세미나 · 포럼 · 심포지엄 · 워크숍</h3><p>다수 발표자, 세션 전환, 질의응답, 원격 발표자, 온라인 시청자까지 한 흐름으로 운영합니다.</p></div>
+      <div class="aBox"><div class="label">VENUE</div><h3>호텔 · 컨벤션 · 기관 행사장</h3><p>기본 설비와 추가 시스템을 함께 검토해 과잉 장비 없이 필요한 구성으로 맞춥니다.</p></div>
+      <div class="aBox"><div class="label">OUTPUT</div><h3>라이브 · 녹화 · 아카이브</h3><p>현장 운영으로 끝나지 않고 행사 이후 활용할 수 있는 기록물과 영상 파일까지 연결합니다.</p></div>
+    </div>
+    <div class="footer"><strong>EVENT OPERATION FOR INFORMATION-DRIVEN EVENTS</strong><span>06 / 08</span></div>
+  </div>
+</section>
+
+<section class="slide" data-title="925FILM Partnership">
+  <div class="inner">
+    <div class="brandbar"><div class="brand"><span class="brandMark"></span> PEOPLEENT</div><div class="page">PARTNERSHIP</div></div>
+    <div class="kicker">PEOPLEENT × 925FILM</div>
+    <h2 class="title">행사를 운영하고,<br>콘텐츠 가치까지 확장합니다.</h2>
+    <div class="collab">
+      <div class="company">
+        <div class="logoText">PEOPLEENT</div>
+        <ul><li>행사 기획 및 현장 운영</li><li>발표·음향·영상 시스템</li><li>LIVE / HYBRID 송출</li><li>녹화 및 현장 대응</li></ul>
+      </div>
+      <div class="plus">+</div>
+      <div class="company">
+        <div class="logoText">925FILM</div>
+        <ul><li>브랜드 콘텐츠 기획</li><li>영상 촬영 및 후반 제작</li><li>하이라이트·인터뷰 편집</li><li>행사 후 홍보용 콘텐츠 확장</li></ul>
+      </div>
+    </div>
+    <div class="outputRow"><span>KEYNOTE FILM</span><span>HIGHLIGHT</span><span>INTERVIEW</span><span>SOCIAL CUT</span><span>ARCHIVE</span></div>
+    <div class="footer"><strong>OPERATION × CONTENT</strong><span>07 / 08</span></div>
+  </div>
+</section>
+
+<section class="slide" data-title="Contact">
+  <div class="inner">
+    <div class="brandbar"><div class="brand"><span class="brandMark"></span> PEOPLEENT</div><div class="page">CONTACT</div></div>
+    <div class="cta">
+      <div class="ctaBox">
+        <div>
+          <div class="kicker" style="margin-top:0">LET'S MAKE IT RUN</div>
+          <h2 class="display" style="font-size:clamp(54px,7vw,108px)">현장은 복잡해도,<br>운영은 <span class="orange">단순하게.</span></h2>
+          <p class="subtitle">행사 목적과 규모를 알려주시면 필요한 운영 범위와 시스템 구성을 빠르게 정리합니다.</p>
+        </div>
+        <div class="contact">
+          <div><small>PHONE</small><br><strong><a href="tel:18002628">1800-2628</a></strong></div>
+          <div><small>MOBILE / TEXT</small><br><strong><a href="tel:01064972628">010-6497-2628</a></strong></div>
+          <div><small>EMAIL</small><br><strong><a href="mailto:contact@peopleent.com">contact@peopleent.com</a></strong></div>
+          <div><small>WEB</small><br><strong><a href="https://peopleent.com" target="_blank" rel="noreferrer">peopleent.com</a></strong></div>
+        </div>
+      </div>
+    </div>
+    <div class="footer"><strong>PEOPLEENT COMPANY PROFILE</strong><span>08 / 08</span></div>
+  </div>
+</section>
+
+</div>
+
+<nav class="nav" id="nav" aria-label="슬라이드 이동"></nav>
+<div class="controls">
+  <button type="button" id="prev" aria-label="이전 슬라이드">‹</button>
+  <div class="count" id="count">01 / 08</div>
+  <button type="button" id="next" aria-label="다음 슬라이드">›</button>
+</div>
+<div class="progress" id="progress"></div>
+
+<script>
+const deck=document.getElementById('deck');
+const slides=[...document.querySelectorAll('.slide')];
+const nav=document.getElementById('nav');
+const count=document.getElementById('count');
+const progress=document.getElementById('progress');
+let index=0;
+
+slides.forEach((s,i)=>{
+  const b=document.createElement('button');
+  b.type='button';
+  b.setAttribute('aria-label', (i+1)+'번 슬라이드 '+(s.dataset.title||''));
+  b.addEventListener('click',()=>go(i));
+  nav.appendChild(b);
+});
+const dots=[...nav.children];
+
+function go(i){
+  index=Math.max(0,Math.min(slides.length-1,i));
+  slides[index].scrollIntoView({behavior:'smooth',block:'start'});
+}
+function sync(i){
+  index=i;
+  dots.forEach((d,n)=>d.classList.toggle('active',n===i));
+  count.textContent=String(i+1).padStart(2,'0')+' / '+String(slides.length).padStart(2,'0');
+  progress.style.width=((i+1)/slides.length*100)+'%';
+  document.title='PEOPLEENT — '+(slides[i].dataset.title||'Company Profile');
+}
+const io=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting&&e.intersectionRatio>.6)sync(slides.indexOf(e.target))})
+},{root:deck,threshold:[.6,.8]});
+slides.forEach(s=>io.observe(s));
+document.getElementById('prev').onclick=()=>go(index-1);
+document.getElementById('next').onclick=()=>go(index+1);
+window.addEventListener('keydown',e=>{
+  if(['ArrowRight','ArrowDown','PageDown',' '].includes(e.key)){e.preventDefault();go(index+1)}
+  if(['ArrowLeft','ArrowUp','PageUp'].includes(e.key)){e.preventDefault();go(index-1)}
+  if(e.key==='Home'){e.preventDefault();go(0)}
+  if(e.key==='End'){e.preventDefault();go(slides.length-1)}
+});
+sync(0);
+</script>
+</body>
+</html>
