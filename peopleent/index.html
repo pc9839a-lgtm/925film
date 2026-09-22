@@ -113,23 +113,72 @@ a{color:inherit}
 .cta:hover .arrow{transform:translate(5px,-2px)}
 
 
-.reason{display:flex;flex-direction:column;justify-content:center;width:100%}
-.reason h2{font-size:clamp(54px,6.8vw,108px);line-height:.9;letter-spacing:-.072em;margin:0 0 7vh;font-weight:900;max-width:1250px}
-.reason-grid{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid #393936}
+.reason{
+  width:100%;
+  display:grid;
+  grid-template-columns:.9fr 1.1fr;
+  gap:7vw;
+  align-items:center;
+}
+.reason h2{
+  margin:0;
+  font-size:clamp(52px,6.6vw,104px);
+  line-height:.9;
+  letter-spacing:-.07em;
+  font-weight:900;
+  max-width:760px;
+}
+.reason-grid{
+  display:grid;
+  grid-template-columns:1fr;
+  border-top:1px solid #393936;
+}
 .light .reason-grid{border-color:#cfc8be}
-.reason-item{min-height:170px;padding:22px 24px 0 0;border-right:1px solid #393936;display:flex;flex-direction:column;justify-content:space-between}
+.reason-item{
+  min-height:auto;
+  padding:21px 0;
+  border-right:0;
+  border-bottom:1px solid #393936;
+  display:grid;
+  grid-template-columns:42px 1fr;
+  align-items:center;
+  gap:18px;
+}
 .light .reason-item{border-color:#cfc8be}
-.reason-item:last-child{border-right:0}
-.reason-item b{font-size:10px;color:var(--accent);letter-spacing:.12em}
-.reason-item strong{font-size:clamp(24px,2.2vw,34px);line-height:1.08;letter-spacing:-.045em}
+.reason-item b{
+  font-size:10px;
+  color:var(--accent);
+  letter-spacing:.12em;
+}
+.reason-item strong{
+  font-size:clamp(21px,2vw,31px);
+  line-height:1.15;
+  letter-spacing:-.04em;
+}
 @media(max-width:900px){
-  .reason{width:100%;justify-content:center}
-  .reason h2{font-size:clamp(38px,11vw,54px);line-height:.94;letter-spacing:-.06em;margin:0 0 30px;word-break:keep-all}
-  .reason-grid{grid-template-columns:1fr}
-  .reason-item{min-height:0;padding:14px 0;border-right:0;border-bottom:1px solid #333;display:grid;grid-template-columns:42px 1fr;align-items:center;gap:10px}
-  .light .reason-item{border-color:#cfc8be}
+  .reason{
+    grid-template-columns:1fr;
+    gap:28px;
+    align-content:center;
+  }
+  .reason h2{
+    font-size:clamp(36px,10.8vw,50px);
+    line-height:.95;
+    letter-spacing:-.058em;
+    max-width:none;
+    word-break:keep-all;
+    text-wrap:balance;
+  }
+  .reason-item{
+    padding:13px 0;
+    grid-template-columns:30px 1fr;
+    gap:10px;
+  }
   .reason-item b{font-size:8px}
-  .reason-item strong{font-size:clamp(19px,5.6vw,26px)}
+  .reason-item strong{
+    font-size:clamp(18px,5.3vw,23px);
+    word-break:keep-all;
+  }
 }
 .contact{display:flex;flex-direction:column;justify-content:center}
 .contact h2{font-size:clamp(68px,8vw,130px);line-height:.87;letter-spacing:-.076em;margin:0;font-weight:900}
@@ -148,12 +197,14 @@ a{color:inherit}
 .hint{position:fixed;right:21px;bottom:22px;z-index:20;color:#6f6f6a;font-size:10px;letter-spacing:.12em}
 
 @media(max-width:900px){
-  .slide{min-height:100svh}
+  .slide{height:100dvh;min-height:100dvh}
   .frame{
-    width:calc(100% - 32px);
-    padding:18px 0 16px;
-    grid-template-rows:34px 1fr 28px;
+    width:calc(100% - 28px);
+    padding:16px 0 14px;
+    grid-template-rows:32px 1fr;
   }
+  .bottom{display:none!important}
+  .nav{display:none!important}
   .top{padding-bottom:10px}
   .wordmark{font-size:12px;letter-spacing:.11em}
   .page{font-size:9px;letter-spacing:.12em}
@@ -204,13 +255,13 @@ a{color:inherit}
     flex-direction:column;
     justify-content:center;
     align-items:stretch;
-    gap:34px;
+    gap:24px;
     padding:0;
     width:100%;
   }
   .service h2{
     width:100%;
-    font-size:clamp(40px,12vw,58px);
+    font-size:clamp(36px,10.8vw,50px);
     line-height:.9;
     letter-spacing:-.064em;
     word-break:keep-all;
@@ -218,8 +269,8 @@ a{color:inherit}
   .service .lead{display:none}
   .service-list{width:100%}
   .service-row{
-    padding:14px 0;
-    grid-template-columns:26px minmax(0,1fr) 18px;
+    padding:12px 0;
+    grid-template-columns:24px minmax(0,1fr) 16px;
     gap:10px;
   }
   .service-row .n{font-size:9px}
@@ -426,7 +477,7 @@ a{color:inherit}
   <div class="frame">
     <div class="top" data-reveal style="--d:0"><div class="wordmark">PEOPLEENT</div><div class="page">WHY</div></div>
     <div class="reason">
-      <h2 data-reveal style="--d:1">여러 업체를<br><span class="accent">따로 부를 필요 없습니다.</span></h2>
+      <h2 data-reveal style="--d:1">행사 운영부터<br><span class="accent">송출 · 촬영까지.</span></h2>
       <div class="reason-grid">
         <div class="reason-item" data-reveal style="--d:2"><b>01</b><strong>행사 운영</strong></div>
         <div class="reason-item" data-reveal style="--d:3"><b>02</b><strong>온라인 송출</strong></div>
@@ -454,6 +505,21 @@ a{color:inherit}
     </div>
     <div class="live-visual"><div class="ring"></div><div class="ring"></div><div class="ring"></div></div>
     <div class="bottom" data-reveal style="--d:5"><span>SERVICE 02</span><span>LIVE & HYBRID</span></div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="frame">
+    <div class="top" data-reveal style="--d:0"><div class="wordmark">PEOPLEENT</div><div class="page"></div></div>
+    <div class="reason">
+      <h2 data-reveal style="--d:1">운영팀과 기술팀<br><span class="accent">한 자리에서.</span></h2>
+      <div class="reason-grid">
+        <div class="reason-item" data-reveal style="--d:2"><b>01</b><strong>현장 진행</strong></div>
+        <div class="reason-item" data-reveal style="--d:3"><b>02</b><strong>음향 · 영상</strong></div>
+        <div class="reason-item" data-reveal style="--d:4"><b>03</b><strong>송출 대응</strong></div>
+      </div>
+    </div>
+    <div class="bottom" data-reveal style="--d:5"><span>WHY PEOPLEENT</span><span>PEOPLEENT</span></div>
   </div>
 </section>
 
@@ -549,11 +615,26 @@ a{color:inherit}
   <div class="frame">
     <div class="top" data-reveal style="--d:0"><div class="wordmark">PEOPLEENT</div><div class="page">WHY</div></div>
     <div class="reason">
-      <h2 data-reveal style="--d:1">행사마다 달라도<br><span class="accent">필요한 건 정확합니다.</span></h2>
+      <h2 data-reveal style="--d:1">공공기관 · 기업 · 학회<br><span class="accent">행사별 대응.</span></h2>
       <div class="reason-grid">
         <div class="reason-item" data-reveal style="--d:2"><b>01</b><strong>공공기관</strong></div>
         <div class="reason-item" data-reveal style="--d:3"><b>02</b><strong>기업 · 학회</strong></div>
         <div class="reason-item" data-reveal style="--d:4"><b>03</b><strong>병원 · 세미나</strong></div>
+      </div>
+    </div>
+    <div class="bottom" data-reveal style="--d:5"><span>WHY PEOPLEENT</span><span>PEOPLEENT</span></div>
+  </div>
+</section>
+
+<section class="slide light">
+  <div class="frame">
+    <div class="top" data-reveal style="--d:0"><div class="wordmark">PEOPLEENT</div><div class="page"></div></div>
+    <div class="reason">
+      <h2 data-reveal style="--d:1">당일 실수는<br><span class="accent">다시 돌릴 수 없습니다.</span></h2>
+      <div class="reason-grid">
+        <div class="reason-item" data-reveal style="--d:2"><b>01</b><strong>사전 체크</strong></div>
+        <div class="reason-item" data-reveal style="--d:3"><b>02</b><strong>리허설</strong></div>
+        <div class="reason-item" data-reveal style="--d:4"><b>03</b><strong>백업 준비</strong></div>
       </div>
     </div>
     <div class="bottom" data-reveal style="--d:5"><span>WHY PEOPLEENT</span><span>PEOPLEENT</span></div>
@@ -601,6 +682,10 @@ a{color:inherit}
 <script>
 const deck=document.getElementById('deck');
 const slides=[...document.querySelectorAll('.slide')];
+slides.forEach((slide,i)=>{
+  const p=slide.querySelector('.page');
+  if(p) p.textContent=String(i+1).padStart(2,'0')+' / '+String(slides.length).padStart(2,'0');
+});
 const nav=document.getElementById('nav');
 const progress=document.getElementById('progress');
 let active=0;
