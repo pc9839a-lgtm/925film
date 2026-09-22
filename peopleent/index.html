@@ -112,6 +112,25 @@ a{color:inherit}
 .cta .arrow{transition:transform .25s}
 .cta:hover .arrow{transform:translate(5px,-2px)}
 
+
+.reason{display:flex;flex-direction:column;justify-content:center;width:100%}
+.reason h2{font-size:clamp(54px,6.8vw,108px);line-height:.9;letter-spacing:-.072em;margin:0 0 7vh;font-weight:900;max-width:1250px}
+.reason-grid{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid #393936}
+.light .reason-grid{border-color:#cfc8be}
+.reason-item{min-height:170px;padding:22px 24px 0 0;border-right:1px solid #393936;display:flex;flex-direction:column;justify-content:space-between}
+.light .reason-item{border-color:#cfc8be}
+.reason-item:last-child{border-right:0}
+.reason-item b{font-size:10px;color:var(--accent);letter-spacing:.12em}
+.reason-item strong{font-size:clamp(24px,2.2vw,34px);line-height:1.08;letter-spacing:-.045em}
+@media(max-width:900px){
+  .reason{width:100%;justify-content:center}
+  .reason h2{font-size:clamp(38px,11vw,54px);line-height:.94;letter-spacing:-.06em;margin:0 0 30px;word-break:keep-all}
+  .reason-grid{grid-template-columns:1fr}
+  .reason-item{min-height:0;padding:14px 0;border-right:0;border-bottom:1px solid #333;display:grid;grid-template-columns:42px 1fr;align-items:center;gap:10px}
+  .light .reason-item{border-color:#cfc8be}
+  .reason-item b{font-size:8px}
+  .reason-item strong{font-size:clamp(19px,5.6vw,26px)}
+}
 .contact{display:flex;flex-direction:column;justify-content:center}
 .contact h2{font-size:clamp(68px,8vw,130px);line-height:.87;letter-spacing:-.076em;margin:0;font-weight:900}
 .contact-info{margin-top:8vh;display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid #353532}
@@ -405,6 +424,21 @@ a{color:inherit}
 
 <section class="slide light">
   <div class="frame">
+    <div class="top" data-reveal style="--d:0"><div class="wordmark">PEOPLEENT</div><div class="page">WHY</div></div>
+    <div class="reason">
+      <h2 data-reveal style="--d:1">여러 업체를<br><span class="accent">따로 부를 필요 없습니다.</span></h2>
+      <div class="reason-grid">
+        <div class="reason-item" data-reveal style="--d:2"><b>01</b><strong>행사 운영</strong></div>
+        <div class="reason-item" data-reveal style="--d:3"><b>02</b><strong>온라인 송출</strong></div>
+        <div class="reason-item" data-reveal style="--d:4"><b>03</b><strong>촬영 · 기록</strong></div>
+      </div>
+    </div>
+    <div class="bottom" data-reveal style="--d:5"><span>WHY PEOPLEENT</span><span>PEOPLEENT</span></div>
+  </div>
+</section>
+
+<section class="slide light">
+  <div class="frame">
     <div class="top" data-reveal style="--d:0"><div class="wordmark">PEOPLEENT</div><div class="page">04 / 10</div></div>
     <div class="service">
       <div>
@@ -463,6 +497,21 @@ a{color:inherit}
 
 <section class="slide">
   <div class="frame">
+    <div class="top" data-reveal style="--d:0"><div class="wordmark">PEOPLEENT</div><div class="page">WHY</div></div>
+    <div class="reason">
+      <h2 data-reveal style="--d:1">행사 전부터<br><span class="accent">끝난 뒤까지.</span></h2>
+      <div class="reason-grid">
+        <div class="reason-item" data-reveal style="--d:2"><b>01</b><strong>사전 준비</strong></div>
+        <div class="reason-item" data-reveal style="--d:3"><b>02</b><strong>현장 진행</strong></div>
+        <div class="reason-item" data-reveal style="--d:4"><b>03</b><strong>결과물 정리</strong></div>
+      </div>
+    </div>
+    <div class="bottom" data-reveal style="--d:5"><span>WHY PEOPLEENT</span><span>PEOPLEENT</span></div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="frame">
     <div class="top" data-reveal style="--d:0"><div class="wordmark">PEOPLEENT</div><div class="page">07 / 10</div></div>
     <div class="process">
       <h2 data-reveal style="--d:1">BEFORE.<br>ON SITE. <span class="accent">OUTPUT.</span></h2>
@@ -493,6 +542,21 @@ a{color:inherit}
       </div>
     </div>
     <div class="bottom" data-reveal style="--d:10"><span>EVENT TYPE</span><span>PEOPLEENT</span></div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="frame">
+    <div class="top" data-reveal style="--d:0"><div class="wordmark">PEOPLEENT</div><div class="page">WHY</div></div>
+    <div class="reason">
+      <h2 data-reveal style="--d:1">행사마다 달라도<br><span class="accent">필요한 건 정확합니다.</span></h2>
+      <div class="reason-grid">
+        <div class="reason-item" data-reveal style="--d:2"><b>01</b><strong>공공기관</strong></div>
+        <div class="reason-item" data-reveal style="--d:3"><b>02</b><strong>기업 · 학회</strong></div>
+        <div class="reason-item" data-reveal style="--d:4"><b>03</b><strong>병원 · 세미나</strong></div>
+      </div>
+    </div>
+    <div class="bottom" data-reveal style="--d:5"><span>WHY PEOPLEENT</span><span>PEOPLEENT</span></div>
   </div>
 </section>
 
