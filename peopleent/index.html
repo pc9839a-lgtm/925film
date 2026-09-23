@@ -186,6 +186,15 @@ a{color:inherit}
 .contact-item{padding:18px 18px 0 0}
 .contact-item b{display:block;color:#72726d;font-size:10px;letter-spacing:.16em;margin-bottom:12px}
 .contact-item span,.contact-item a{font-size:clamp(17px,1.4vw,23px);color:#fff;text-decoration:none;letter-spacing:-.03em}
+.contact-cta{
+  display:inline-flex;align-items:center;justify-content:center;gap:10px;
+  width:max-content;margin-top:34px;padding:14px 22px;
+  border:1px solid var(--accent);background:var(--accent);color:#fff;
+  text-decoration:none;font-size:15px;font-weight:900;letter-spacing:-.02em;
+  transition:transform .2s ease,filter .2s ease
+}
+.contact-cta:hover{transform:translateY(-2px);filter:brightness(1.06)}
+.contact-cta .arr{font-size:17px}
 
 .nav{position:fixed;right:22px;top:50%;transform:translateY(-50%);z-index:20;display:flex;flex-direction:column;gap:9px}
 .dot{width:6px;height:6px;border-radius:50%;background:#595955;border:0;padding:0;cursor:pointer;transition:.25s}
@@ -504,6 +513,31 @@ a{color:inherit}
   }
 }
 
+
+/* mobile breathing */
+@media(max-width:900px){
+  .hero,.statement,.service,.process,.types,.gallery,.contact,.reason{
+    padding-top:6vh;
+    padding-bottom:6vh;
+  }
+  .service{gap:36px}
+  .reason{gap:38px}
+  .process h2{margin-bottom:42px}
+  .types h2{margin-bottom:40px}
+  .gallery .cta{margin-top:32px}
+  .contact-info{margin-top:46px}
+  .service-row{padding-top:14px;padding-bottom:14px}
+  .reason-item{padding-top:15px;padding-bottom:15px}
+  .step{padding-top:16px;padding-bottom:16px}
+  .contact-cta{
+    width:min(100%,320px);
+    min-height:52px;
+    margin:30px auto 0;
+    padding:15px 20px;
+    font-size:15px;
+  }
+}
+
 @media(max-width:560px){
   .frame{width:calc(100% - 28px)}
   .hero h1{font-size:clamp(43px,14.2vw,62px)}
@@ -761,7 +795,8 @@ a{color:inherit}
         <div class="contact-item"><b>WEB</b><a href="https://peopleent.com" target="_blank" rel="noopener">peopleent.com</a></div>
       </div>
     </div>
-    <div class="bottom" data-reveal style="--d:3"><span>CONTACT</span><span>PEOPLEENT</span></div>
+      <a class="contact-cta" data-reveal style="--d:3" href="https://peopleent.com" target="_blank" rel="noopener">문의하기 <span class="arr">↗</span></a>
+    <div class="bottom" data-reveal style="--d:4"><span>CONTACT</span><span>PEOPLEENT</span></div>
   </div>
 </section>
 
