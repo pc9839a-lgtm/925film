@@ -187,10 +187,12 @@ a{color:inherit}
 .contact-item b{display:block;color:#72726d;font-size:10px;letter-spacing:.16em;margin-bottom:12px}
 .contact-item span,.contact-item a{font-size:clamp(17px,1.4vw,23px);color:#fff;text-decoration:none;letter-spacing:-.03em}
 .contact-cta{
+  position:fixed;right:24px;bottom:24px;z-index:40;
   display:inline-flex;align-items:center;justify-content:center;gap:10px;
-  width:max-content;margin-top:34px;padding:14px 22px;
+  min-width:132px;height:50px;padding:0 20px;
   border:1px solid var(--accent);background:var(--accent);color:#fff;
   text-decoration:none;font-size:15px;font-weight:900;letter-spacing:-.02em;
+  box-shadow:0 10px 30px rgba(0,0,0,.28);
   transition:transform .2s ease,filter .2s ease
 }
 .contact-cta:hover{transform:translateY(-2px);filter:brightness(1.06)}
@@ -529,12 +531,15 @@ a{color:inherit}
   .service-row{padding-top:14px;padding-bottom:14px}
   .reason-item{padding-top:15px;padding-bottom:15px}
   .step{padding-top:16px;padding-bottom:16px}
+}
+
+@media(max-width:900px){
   .contact-cta{
-    width:min(100%,320px);
-    min-height:52px;
-    margin:30px auto 0;
-    padding:15px 20px;
-    font-size:15px;
+    right:14px;bottom:14px;
+    min-width:118px;height:46px;
+    padding:0 16px;
+    font-size:14px;
+    border-radius:999px;
   }
 }
 
@@ -795,8 +800,7 @@ a{color:inherit}
         <div class="contact-item"><b>WEB</b><a href="https://peopleent.com" target="_blank" rel="noopener">peopleent.com</a></div>
       </div>
     </div>
-      <a class="contact-cta" data-reveal style="--d:3" href="https://peopleent.com" target="_blank" rel="noopener">문의하기 <span class="arr">↗</span></a>
-    <div class="bottom" data-reveal style="--d:4"><span>CONTACT</span><span>PEOPLEENT</span></div>
+<div class="bottom" data-reveal style="--d:4"><span>CONTACT</span><span>PEOPLEENT</span></div>
   </div>
 </section>
 
@@ -808,6 +812,7 @@ a{color:inherit}
   <button class="arrowBtn" id="next" aria-label="다음">↓</button>
 </div>
 <div class="hint">SCROLL / KEY</div>
+<a class="contact-cta" id="globalContactCta" href="https://peopleent.com" target="_blank" rel="noopener">문의하기 <span class="arr">↗</span></a>
 <div class="progress" id="progress"></div>
 
 <script>
