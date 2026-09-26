@@ -73,27 +73,15 @@ a{color:inherit}
 .hero-photo img{object-position:center}
 .hero > div:first-child{position:relative;z-index:2}
 
-.process-photo{
-  width:100%;height:100px;margin:-2vh 0 28px
-}
-.process-photo img{object-position:center 48%}
-
-.types-photo{
-  width:100%;height:92px;margin:-2vh 0 24px
-}
-.types-photo img{object-position:center 45%}
-
 @media(max-width:900px){
   .hero{display:flex!important;flex-direction:column;justify-content:center;gap:28px}
   .hero-photo{width:min(100%,560px);height:150px;min-height:0;margin:0 auto}
-  .process-photo,.types-photo{width:min(100%,560px);height:82px;margin:0 auto 26px}
   .section-photo::after{font-size:8px;right:8px;bottom:7px;padding:5px 6px}
   .section-photo::before{width:30px}
 }
 @media(max-width:560px){
   .hero{gap:24px}
   .hero-photo{height:126px}
-  .process-photo,.types-photo{height:72px;margin-bottom:22px}
 }
 
 .hero{display:flex;align-items:center;padding:0}
@@ -133,7 +121,7 @@ a{color:inherit}
 @keyframes spin{to{transform:rotate(360deg)}}
 
 .process{display:flex;flex-direction:column;justify-content:center}
-.process h2{font-size:clamp(52px,6.3vw,100px);line-height:.9;letter-spacing:-.07em;margin:0 0 7vh;font-weight:900}
+.process h2{font-size:clamp(52px,6.3vw,100px);line-height:.9;letter-spacing:-.07em;margin:0 0 5vh;font-weight:900}
 .steps{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid #393936}
 .step{padding:20px 28px 0 0;min-height:200px;border-right:1px solid #393936}
 .step:last-child{border-right:0}
@@ -142,7 +130,7 @@ a{color:inherit}
 .step span{display:none}
 
 .types{display:flex;flex-direction:column;justify-content:center}
-.types h2{font-size:clamp(55px,6.5vw,106px);line-height:.9;letter-spacing:-.072em;margin:0 0 7vh;font-weight:900}
+.types h2{font-size:clamp(55px,6.5vw,106px);line-height:.9;letter-spacing:-.072em;margin:0 0 5vh;font-weight:900}
 .type-grid{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid #cfc8be;border-left:1px solid #cfc8be}
 .type-card{padding:25px 22px;min-height:145px;border-right:1px solid #cfc8be;border-bottom:1px solid #cfc8be;text-decoration:none;display:flex;flex-direction:column;justify-content:space-between;transition:background .25s,color .25s}
 .type-card small{font-size:10px;color:#8a837b;letter-spacing:.12em}
@@ -749,8 +737,8 @@ a{color:inherit}
   }
   .service{gap:28px}
   .reason{gap:38px}
-  .process h2{margin-bottom:42px}
-  .types h2{margin-bottom:40px}
+  .process h2{margin-bottom:30px}
+  .types h2{margin-bottom:30px}
   .gallery .cta{margin-top:32px}
   .contact-info{margin-top:46px}
   .service-row{padding-top:14px;padding-bottom:14px}
@@ -963,7 +951,6 @@ a{color:inherit}
     <div class="top" data-reveal style="--d:0"><div class="wordmark">PEOPLEENT</div><div class="page">07 / 10</div></div>
     <div class="process">
       <h2 data-reveal style="--d:1">BEFORE.<br>ON SITE. <span class="accent">OUTPUT.</span></h2>
-      <a class="section-photo process-photo" data-reveal style="--d:2" href="https://peopleent.com/gallery" target="_blank" rel="noopener"><img src="https://cdn.imweb.me/thumbnail/20260506/24cd8212921ad.jpg" alt="피플엔트 행사 준비와 운영 현장" loading="lazy"></a>
       <div class="steps">
         <div class="step" data-reveal style="--d:2"><b>01 / BEFORE</b><strong>준비</strong></div>
         <div class="step" data-reveal style="--d:3"><b>02 / ON SITE</b><strong>현장</strong></div>
@@ -979,7 +966,6 @@ a{color:inherit}
     <div class="top" data-reveal style="--d:0"><div class="wordmark">PEOPLEENT</div><div class="page">08 / 10</div></div>
     <div class="types">
       <h2 data-reveal style="--d:1">BUSINESS<br><span class="accent">EVENTS.</span></h2>
-      <a class="section-photo types-photo" data-reveal style="--d:2" href="https://peopleent.com/gallery" target="_blank" rel="noopener"><img src="https://cdn.imweb.me/thumbnail/20260415/877e75ba222db.jpg" alt="피플엔트 비즈니스 행사 현장" loading="lazy"></a>
       <div class="type-grid">
         <a class="type-card" data-reveal style="--d:2" href="https://peopleent.com/public-event-operation" target="_blank" rel="noopener"><small>01</small><strong>공공기관</strong></a>
         <a class="type-card" data-reveal style="--d:3" href="https://www.peopleent.com/corporate-conference-operation" target="_blank" rel="noopener"><small>02</small><strong>기업 · 컨퍼런스</strong></a>
