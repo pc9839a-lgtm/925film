@@ -140,14 +140,15 @@ a{color:inherit}
   align-self:start;
 }
 .step{
-  padding:30px 28px 26px 0;
+  padding:30px 32px 26px;
   min-height:180px;
   border-right:1px solid #393936;
   display:flex;
   flex-direction:column;
   justify-content:flex-start;
 }
-.step:last-child{border-right:0}
+.step:first-child{padding-left:8px}
+.step:last-child{border-right:0;padding-right:8px}
 .step b{
   display:block;
   color:var(--accent);
@@ -573,7 +574,7 @@ a{color:inherit}
   }
   .step{
     min-height:0;
-    padding:17px 0;
+    padding:17px 8px;
     border-right:0;
     border-bottom:1px solid #333;
     display:grid;
