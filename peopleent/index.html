@@ -73,11 +73,6 @@ a{color:inherit}
 .hero-photo img{object-position:center}
 .hero > div:first-child{position:relative;z-index:2}
 
-.service-photo{
-  width:min(100%,520px);height:clamp(120px,18vh,180px);margin-top:28px
-}
-.service-photo img{object-position:center}
-
 .process-photo{
   width:100%;height:100px;margin:-2vh 0 28px
 }
@@ -91,7 +86,6 @@ a{color:inherit}
 @media(max-width:900px){
   .hero{display:flex!important;flex-direction:column;justify-content:center;gap:28px}
   .hero-photo{width:min(100%,560px);height:150px;min-height:0;margin:0 auto}
-  .service-photo{width:min(100%,560px);height:112px;margin:22px auto 0}
   .process-photo,.types-photo{width:min(100%,560px);height:82px;margin:0 auto 26px}
   .section-photo::after{font-size:8px;right:8px;bottom:7px;padding:5px 6px}
   .section-photo::before{width:30px}
@@ -99,7 +93,6 @@ a{color:inherit}
 @media(max-width:560px){
   .hero{gap:24px}
   .hero-photo{height:126px}
-  .service-photo{height:96px;margin-top:18px}
   .process-photo,.types-photo{height:72px;margin-bottom:22px}
 }
 
@@ -115,8 +108,9 @@ a{color:inherit}
 .statement p{margin:30px 0 0;color:var(--muted);font-size:clamp(17px,1.55vw,23px);line-height:1.6;max-width:760px}
 .accent{color:var(--accent)}
 
-.service{display:grid;grid-template-columns:.9fr 1.1fr;gap:7vw;align-items:center;padding:0}
+.service{display:grid;grid-template-columns:.88fr 1.12fr;gap:6vw;align-items:center;padding:0}
 .service h2{font-size:clamp(55px,6.8vw,110px);line-height:.88;letter-spacing:-.074em;margin:0;font-weight:900}
+.service > div:first-child{display:flex;flex-direction:column;justify-content:center}
 .service .lead{display:none}
 .light .service .lead{display:none}
 .service-list{border-top:1px solid #383835}
@@ -683,7 +677,7 @@ a{color:inherit}
     padding-top:6vh;
     padding-bottom:6vh;
   }
-  .service{gap:36px}
+  .service{gap:28px}
   .reason{gap:38px}
   .process h2{margin-bottom:42px}
   .types h2{margin-bottom:40px}
@@ -759,7 +753,6 @@ a{color:inherit}
     <div class="service">
       <div>
         <h2 data-reveal style="--d:1">EVENT<br>OPERATION</h2>
-        <a class="section-photo service-photo" data-service="02" data-reveal style="--d:2" href="https://peopleent.com/gallery" target="_blank" rel="noopener"><img src="https://cdn.imweb.me/thumbnail/20260614/c082ad648b29b.jpg" alt="피플엔트 행사 운영 현장" loading="lazy"></a>
         <div class="lead" data-reveal style="--d:2">행사의 시작부터 현장의 마지막까지.</div>
       </div>
       <div class="service-list">
@@ -794,7 +787,6 @@ a{color:inherit}
     <div class="service">
       <div>
         <h2 data-reveal style="--d:1">LIVE &<br>HYBRID</h2>
-        <a class="section-photo service-photo" data-service="03" data-reveal style="--d:2" href="https://peopleent.com/gallery" target="_blank" rel="noopener"><img src="https://cdn.imweb.me/thumbnail/20260701/77a3eaec14f04.jpg" alt="피플엔트 라이브 송출 현장" loading="lazy"></a>
         <div class="lead" data-reveal style="--d:2">카메라부터 발표자료, 음향, 자막, 플랫폼까지 실시간으로 연결합니다.</div>
       </div>
       <div class="service-list">
@@ -830,7 +822,6 @@ a{color:inherit}
     <div class="service">
       <div>
         <h2 data-reveal style="--d:1">RECORD &<br>CONTENT</h2>
-        <a class="section-photo service-photo" data-service="04" data-reveal style="--d:2" href="https://peopleent.com/gallery" target="_blank" rel="noopener"><img src="https://cdn.imweb.me/thumbnail/20260614/0c785cedec5a0.jpg" alt="피플엔트 촬영 및 기록 현장" loading="lazy"></a>
         <div class="lead" data-reveal style="--d:2">행사가 끝난 뒤에도 활용할 수 있는 기록과 콘텐츠.</div>
       </div>
       <div class="service-list">
@@ -852,7 +843,6 @@ a{color:inherit}
     <div class="service">
       <div>
         <h2 data-reveal style="--d:1">DESIGN &<br>PRINT</h2>
-        <a class="section-photo service-photo" data-service="05" data-reveal style="--d:2" href="https://peopleent.com/gallery" target="_blank" rel="noopener"><img src="https://cdn.imweb.me/thumbnail/20260701/5d4054f34b2e1.jpg" alt="피플엔트 행사 디자인 및 제작 현장" loading="lazy"></a>
         <div class="lead" data-reveal style="--d:2">행사 아이덴티티부터 현장 제작물 설치까지.</div>
       </div>
       <div class="service-list">
