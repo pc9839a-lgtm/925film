@@ -256,6 +256,50 @@ a{color:inherit}
   }
 }
 
+
+.chapter-photo{background:#050505!important}
+.chapter-photo .chapter-media{position:absolute;inset:0;z-index:0}
+.chapter-photo .chapter-media img{
+  width:100%;height:100%;object-fit:cover;display:block;
+  filter:saturate(.84) contrast(1.08) brightness(.55);
+  transform:scale(1.045);transition:transform 1.35s var(--ease)
+}
+.chapter-photo.in-view .chapter-media img{transform:scale(1)}
+.chapter-photo::after{
+  content:"";position:absolute;inset:0;z-index:0;
+  background:linear-gradient(90deg,rgba(0,0,0,.72) 0%,rgba(0,0,0,.28) 48%,rgba(0,0,0,.18) 100%)
+}
+.chapter-photo .frame{z-index:2;color:#fff}
+.chapter-copy{display:flex;align-items:center}
+.chapter-copy h2{
+  margin:0;font-size:clamp(68px,8.8vw,144px);line-height:.86;
+  letter-spacing:-.078em;font-weight:900;max-width:1180px;text-wrap:balance
+}
+.chapter-copy .accent{display:block}
+
+.chapter-live{background:var(--accent)!important;color:#0a0a0a}
+.chapter-live .top,.chapter-live .bottom{border-color:rgba(0,0,0,.28);color:#171717}
+.chapter-live .page{color:rgba(0,0,0,.55)}
+.chapter-live-wrap{
+  display:grid;grid-template-columns:1.1fr .9fr;align-items:center;gap:6vw;width:100%
+}
+.chapter-live .live-word{
+  margin:0;font-size:clamp(110px,16vw,260px);line-height:.72;
+  letter-spacing:-.09em;font-weight:900;color:#0a0a0a
+}
+.chapter-live h2{
+  margin:0;font-size:clamp(46px,5.8vw,92px);line-height:.92;
+  letter-spacing:-.065em;font-weight:900;color:#0a0a0a;word-break:keep-all
+}
+
+@media(max-width:900px){
+  .chapter-copy{justify-content:center;text-align:center}
+  .chapter-copy h2{font-size:clamp(46px,13vw,70px);line-height:.9}
+  .chapter-live-wrap{grid-template-columns:1fr;gap:28px;text-align:center}
+  .chapter-live .live-word{font-size:clamp(108px,31vw,176px)}
+  .chapter-live h2{font-size:clamp(38px,10.8vw,54px)}
+}
+
 .impact-slide{background:#050505!important}
 .impact-media{position:absolute;inset:0;z-index:0}
 .impact-media img{width:100%;height:100%;object-fit:cover;display:block;filter:saturate(.82) contrast(1.08) brightness(.58);transform:scale(1.04);transition:transform 1.4s var(--ease)}
@@ -729,6 +773,17 @@ a{color:inherit}
   </div>
 </section>
 
+<section class="slide chapter-photo">
+  <div class="chapter-media"><img src="https://cdn.imweb.me/thumbnail/20260614/c082ad648b29b.jpg" alt="피플엔트 행사 현장" loading="lazy"></div>
+  <div class="frame">
+    <div class="top" data-reveal style="--d:0"><div class="wordmark">PEOPLEENT</div><div class="page"></div></div>
+    <div class="chapter-copy">
+      <h2 data-reveal style="--d:1">현장은<br><span class="accent">한 번뿐입니다.</span></h2>
+    </div>
+    <div class="bottom" data-reveal style="--d:2"><span>EVENT OPERATION</span><span>PEOPLEENT</span></div>
+  </div>
+</section>
+
 
 
 
@@ -751,6 +806,17 @@ a{color:inherit}
     </div>
     <div class="live-visual"><div class="ring"></div><div class="ring"></div><div class="ring"></div></div>
     <div class="bottom" data-reveal style="--d:5"><span>SERVICE 02</span><span>LIVE & HYBRID</span></div>
+  </div>
+</section>
+
+<section class="slide chapter-live">
+  <div class="frame">
+    <div class="top" data-reveal style="--d:0"><div class="wordmark">PEOPLEENT</div><div class="page"></div></div>
+    <div class="chapter-live-wrap">
+      <div class="live-word" data-reveal style="--d:1">LIVE.</div>
+      <h2 data-reveal style="--d:2">온라인도<br>현장입니다.</h2>
+    </div>
+    <div class="bottom" data-reveal style="--d:3"><span>LIVE & HYBRID</span><span>PEOPLEENT</span></div>
   </div>
 </section>
 
@@ -800,16 +866,7 @@ a{color:inherit}
   </div>
 </section>
 
-<section class="slide impact-slide">
-  <div class="impact-media"><img src="https://cdn.imweb.me/thumbnail/20260415/ab1c31b7580fe.jpg" alt="피플엔트 행사 현장" loading="lazy"></div>
-  <div class="frame">
-    <div class="top" data-reveal style="--d:0"><div class="wordmark">PEOPLEENT</div><div class="page"></div></div>
-    <div class="impact-copy">
-      <h2 data-reveal style="--d:1">행사는<br><span class="accent">다시 할 수 없습니다.</span></h2>
-    </div>
-    <div class="bottom" data-reveal style="--d:2"><span>ON SITE</span><span>PEOPLEENT</span></div>
-  </div>
-</section>
+
 
 <section class="slide">
   <div class="frame">
