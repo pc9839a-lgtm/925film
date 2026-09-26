@@ -127,6 +127,8 @@ a{color:inherit}
   letter-spacing:-.07em;
   font-weight:900;
   max-width:760px;
+  word-break:keep-all;
+  text-wrap:balance;
 }
 .reason-grid{
   display:grid;
@@ -155,6 +157,10 @@ a{color:inherit}
   line-height:1.15;
   letter-spacing:-.04em;
 }
+@media(max-width:1200px){
+  .reason h2{font-size:clamp(46px,5.7vw,76px)}
+}
+
 @media(max-width:900px){
   .reason{
     grid-template-columns:1fr;
@@ -662,7 +668,7 @@ a{color:inherit}
   <div class="frame">
     <div class="top" data-reveal style="--d:0"><div class="wordmark">PEOPLEENT</div><div class="page"></div></div>
     <div class="reason">
-      <h2 data-reveal style="--d:1">송출은 켜는 것보다<br><span class="accent">안 끊기는 게 중요합니다.</span></h2>
+      <h2 data-reveal style="--d:1">송출은<br><span class="accent">끊기지 않아야 합니다.</span></h2>
       <div class="reason-grid">
         <div class="reason-item" data-reveal style="--d:2"><b>01</b><strong>회선 점검</strong></div>
         <div class="reason-item" data-reveal style="--d:3"><b>02</b><strong>실시간 모니터링</strong></div>
@@ -677,7 +683,7 @@ a{color:inherit}
   <div class="frame">
     <div class="top" data-reveal style="--d:0"><div class="wordmark">PEOPLEENT</div><div class="page"></div></div>
     <div class="reason">
-      <h2 data-reveal style="--d:1">운영팀과 기술팀<br><span class="accent">한 자리에서.</span></h2>
+      <h2 data-reveal style="--d:1">운영과 기술을<br><span class="accent">따로 보지 않습니다.</span></h2>
       <div class="reason-grid">
         <div class="reason-item" data-reveal style="--d:2"><b>01</b><strong>현장 진행</strong></div>
         <div class="reason-item" data-reveal style="--d:3"><b>02</b><strong>음향 · 영상</strong></div>
@@ -711,7 +717,7 @@ a{color:inherit}
   <div class="frame">
     <div class="top" data-reveal style="--d:0"><div class="wordmark">PEOPLEENT</div><div class="page"></div></div>
     <div class="reason">
-      <h2 data-reveal style="--d:1">행사가 끝난 뒤<br><span class="accent">바로 쓸 수 있어야 합니다.</span></h2>
+      <h2 data-reveal style="--d:1">행사 후에도<br><span class="accent">결과는 남아야 합니다.</span></h2>
       <div class="reason-grid">
         <div class="reason-item" data-reveal style="--d:2"><b>01</b><strong>녹화본</strong></div>
         <div class="reason-item" data-reveal style="--d:3"><b>02</b><strong>현장 사진</strong></div>
@@ -745,7 +751,7 @@ a{color:inherit}
   <div class="frame">
     <div class="top" data-reveal style="--d:0"><div class="wordmark">PEOPLEENT</div><div class="page">WHY</div></div>
     <div class="reason">
-      <h2 data-reveal style="--d:1">행사 전부터<br><span class="accent">끝난 뒤까지.</span></h2>
+      <h2 data-reveal style="--d:1">준비부터<br><span class="accent">결과물까지.</span></h2>
       <div class="reason-grid">
         <div class="reason-item" data-reveal style="--d:2"><b>01</b><strong>사전 준비</strong></div>
         <div class="reason-item" data-reveal style="--d:3"><b>02</b><strong>현장 진행</strong></div>
@@ -795,7 +801,7 @@ a{color:inherit}
   <div class="frame">
     <div class="top" data-reveal style="--d:0"><div class="wordmark">PEOPLEENT</div><div class="page">WHY</div></div>
     <div class="reason">
-      <h2 data-reveal style="--d:1">공공기관 · 기업 · 학회<br><span class="accent">행사별 대응.</span></h2>
+      <h2 data-reveal style="--d:1">행사마다<br><span class="accent">운영 방식이 다릅니다.</span></h2>
       <div class="reason-grid">
         <div class="reason-item" data-reveal style="--d:2"><b>01</b><strong>공공기관</strong></div>
         <div class="reason-item" data-reveal style="--d:3"><b>02</b><strong>기업 · 학회</strong></div>
