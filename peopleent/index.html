@@ -51,6 +51,63 @@ a{color:inherit}
 [data-line]::after{content:"";position:absolute;inset:0;background:currentColor;transform:translateX(0);transition:transform 1s var(--ease);transition-delay:calc(var(--d,0) * 70ms + 80ms)}
 .slide.in-view [data-line]::after{transform:translateX(101%)}
 
+.section-photo{
+  position:relative;overflow:hidden;border:1px solid #2d2d29;background:#151513;
+  isolation:isolate
+}
+.light .section-photo{border-color:#cfc8be;background:#e9e4dc}
+.section-photo::after{
+  content:attr(data-no);position:absolute;right:12px;bottom:10px;z-index:2;
+  font-size:10px;font-weight:900;letter-spacing:.12em;color:#fff;
+  background:rgba(9,9,9,.72);padding:6px 8px
+}
+.section-photo::before{
+  content:"";position:absolute;left:0;top:0;width:42px;height:3px;background:var(--accent);z-index:2
+}
+.section-photo img{
+  width:100%;height:100%;object-fit:cover;display:block;
+  filter:saturate(.88) contrast(1.03);
+  transform:scale(1.01);
+  transition:transform .7s var(--ease),filter .35s ease
+}
+.slide.in-view .section-photo img{transform:scale(1)}
+.section-photo:hover img{transform:scale(1.035);filter:saturate(1) contrast(1.04)}
+
+.hero{display:grid!important;grid-template-columns:1.08fr .72fr;gap:5.5vw;align-items:center;padding:0}
+.hero-photo{height:min(52vh,430px);min-height:260px}
+.hero-photo img{object-position:center}
+.hero > div:first-child{position:relative;z-index:2}
+
+.service-photo{
+  width:min(100%,520px);height:clamp(120px,18vh,180px);margin-top:28px
+}
+.service-photo img{object-position:center}
+
+.process-photo{
+  width:100%;height:100px;margin:-2vh 0 28px
+}
+.process-photo img{object-position:center 48%}
+
+.types-photo{
+  width:100%;height:92px;margin:-2vh 0 24px
+}
+.types-photo img{object-position:center 45%}
+
+@media(max-width:900px){
+  .hero{display:flex!important;flex-direction:column;justify-content:center;gap:28px}
+  .hero-photo{width:min(100%,560px);height:150px;min-height:0;margin:0 auto}
+  .service-photo{width:min(100%,560px);height:112px;margin:22px auto 0}
+  .process-photo,.types-photo{width:min(100%,560px);height:82px;margin:0 auto 26px}
+  .section-photo::after{font-size:8px;right:8px;bottom:7px;padding:5px 6px}
+  .section-photo::before{width:30px}
+}
+@media(max-width:560px){
+  .hero{gap:24px}
+  .hero-photo{height:126px}
+  .service-photo{height:96px;margin-top:18px}
+  .process-photo,.types-photo{height:72px;margin-bottom:22px}
+}
+
 .hero{display:flex;align-items:center;padding:0}
 .hero h1{margin:0;font-size:clamp(64px,8.1vw,134px);line-height:.86;letter-spacing:-.078em;font-weight:900;max-width:1240px}
 .hero .accent{color:var(--accent)}
@@ -597,6 +654,9 @@ a{color:inherit}
           <span class="tag">EVENT</span><span class="tag">LIVE</span><span class="tag">VIDEO</span><span class="tag">DESIGN</span>
         </div>
       </div>
+      <a class="section-photo hero-photo" data-no="01" data-reveal style="--d:2" href="https://peopleent.com/gallery" target="_blank" rel="noopener">
+        <img src="https://cdn.imweb.me/thumbnail/20260506/4138baabbdb2e.jpg" alt="피플엔트 행사 현장" loading="eager">
+      </a>
     </div>
     <div class="bottom" data-reveal style="--d:4"><span>COMPANY PROFILE</span><span>PEOPLEENT</span></div>
   </div>
@@ -618,6 +678,7 @@ a{color:inherit}
     <div class="service">
       <div>
         <h2 data-reveal style="--d:1">EVENT<br>OPERATION</h2>
+        <a class="section-photo service-photo" data-no="02" data-service="02" data-reveal style="--d:2" href="https://peopleent.com/gallery" target="_blank" rel="noopener"><img src="https://cdn.imweb.me/thumbnail/20260614/c082ad648b29b.jpg" alt="피플엔트 행사 운영 현장" loading="lazy"></a>
         <div class="lead" data-reveal style="--d:2">행사의 시작부터 현장의 마지막까지.</div>
       </div>
       <div class="service-list">
@@ -667,6 +728,7 @@ a{color:inherit}
     <div class="service">
       <div>
         <h2 data-reveal style="--d:1">LIVE &<br>HYBRID</h2>
+        <a class="section-photo service-photo" data-no="03" data-service="03" data-reveal style="--d:2" href="https://peopleent.com/gallery" target="_blank" rel="noopener"><img src="https://cdn.imweb.me/thumbnail/20260701/77a3eaec14f04.jpg" alt="피플엔트 라이브 송출 현장" loading="lazy"></a>
         <div class="lead" data-reveal style="--d:2">카메라부터 발표자료, 음향, 자막, 플랫폼까지 실시간으로 연결합니다.</div>
       </div>
       <div class="service-list">
@@ -717,6 +779,7 @@ a{color:inherit}
     <div class="service">
       <div>
         <h2 data-reveal style="--d:1">RECORD &<br>CONTENT</h2>
+        <a class="section-photo service-photo" data-no="04" data-service="04" data-reveal style="--d:2" href="https://peopleent.com/gallery" target="_blank" rel="noopener"><img src="https://cdn.imweb.me/thumbnail/20260614/0c785cedec5a0.jpg" alt="피플엔트 촬영 및 기록 현장" loading="lazy"></a>
         <div class="lead" data-reveal style="--d:2">행사가 끝난 뒤에도 활용할 수 있는 기록과 콘텐츠.</div>
       </div>
       <div class="service-list">
@@ -751,6 +814,7 @@ a{color:inherit}
     <div class="service">
       <div>
         <h2 data-reveal style="--d:1">DESIGN &<br>PRINT</h2>
+        <a class="section-photo service-photo" data-no="05" data-service="05" data-reveal style="--d:2" href="https://peopleent.com/gallery" target="_blank" rel="noopener"><img src="https://cdn.imweb.me/thumbnail/20260701/5d4054f34b2e1.jpg" alt="피플엔트 행사 디자인 및 제작 현장" loading="lazy"></a>
         <div class="lead" data-reveal style="--d:2">행사 아이덴티티부터 현장 제작물 설치까지.</div>
       </div>
       <div class="service-list">
@@ -784,6 +848,7 @@ a{color:inherit}
     <div class="top" data-reveal style="--d:0"><div class="wordmark">PEOPLEENT</div><div class="page">07 / 10</div></div>
     <div class="process">
       <h2 data-reveal style="--d:1">BEFORE.<br>ON SITE. <span class="accent">OUTPUT.</span></h2>
+      <a class="section-photo process-photo" data-no="06" data-reveal style="--d:2" href="https://peopleent.com/gallery" target="_blank" rel="noopener"><img src="https://cdn.imweb.me/thumbnail/20260506/24cd8212921ad.jpg" alt="피플엔트 행사 준비와 운영 현장" loading="lazy"></a>
       <div class="steps">
         <div class="step" data-reveal style="--d:2"><b>01 / BEFORE</b><strong>준비</strong></div>
         <div class="step" data-reveal style="--d:3"><b>02 / ON SITE</b><strong>현장</strong></div>
@@ -799,6 +864,7 @@ a{color:inherit}
     <div class="top" data-reveal style="--d:0"><div class="wordmark">PEOPLEENT</div><div class="page">08 / 10</div></div>
     <div class="types">
       <h2 data-reveal style="--d:1">BUSINESS<br><span class="accent">EVENTS.</span></h2>
+      <a class="section-photo types-photo" data-no="07" data-reveal style="--d:2" href="https://peopleent.com/gallery" target="_blank" rel="noopener"><img src="https://cdn.imweb.me/thumbnail/20260415/877e75ba222db.jpg" alt="피플엔트 비즈니스 행사 현장" loading="lazy"></a>
       <div class="type-grid">
         <a class="type-card" data-reveal style="--d:2" href="https://peopleent.com/public-event-operation" target="_blank" rel="noopener"><small>01</small><strong>공공기관</strong></a>
         <a class="type-card" data-reveal style="--d:3" href="https://www.peopleent.com/corporate-conference-operation" target="_blank" rel="noopener"><small>02</small><strong>기업 · 컨퍼런스</strong></a>
