@@ -255,6 +255,48 @@ a{color:inherit}
     word-break:keep-all;
   }
 }
+
+.impact-slide{background:#050505!important}
+.impact-media{position:absolute;inset:0;z-index:0}
+.impact-media img{width:100%;height:100%;object-fit:cover;display:block;filter:saturate(.82) contrast(1.08) brightness(.58);transform:scale(1.04);transition:transform 1.4s var(--ease)}
+.impact-slide.in-view .impact-media img{transform:scale(1)}
+.impact-slide::after{content:"";position:absolute;inset:0;z-index:0;background:linear-gradient(90deg,rgba(0,0,0,.62),rgba(0,0,0,.12) 55%,rgba(0,0,0,.38))}
+.impact-slide .frame{z-index:2;color:#fff}
+.impact-copy{display:flex;align-items:center;justify-content:center;text-align:center}
+.impact-copy h2{margin:0;font-size:clamp(64px,8.5vw,138px);line-height:.88;letter-spacing:-.075em;font-weight:900;max-width:1280px;text-wrap:balance}
+.impact-copy .accent{display:block;margin-top:10px}
+
+.proof{display:flex;flex-direction:column;justify-content:center}
+.proof h2{margin:0 0 7vh;font-size:clamp(52px,6.4vw,102px);line-height:.9;letter-spacing:-.07em;font-weight:900}
+.proof-grid{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid #393936}
+.proof-item{min-height:190px;padding:22px 24px 0 0;border-right:1px solid #393936;display:flex;flex-direction:column;justify-content:space-between}
+.proof-item:last-child{border-right:0}
+.proof-item b{font-size:10px;letter-spacing:.12em;color:var(--accent)}
+.proof-item strong{font-size:clamp(26px,2.4vw,38px);letter-spacing:-.045em}
+
+.project-feature{display:grid;grid-template-columns:.64fr 1.36fr;gap:5vw;align-items:center;width:100%}
+.project-title h2{margin:0;font-size:clamp(54px,6.8vw,108px);line-height:.9;letter-spacing:-.072em;font-weight:900}
+.project-visuals{display:grid;grid-template-columns:1.35fr .65fr;gap:12px;height:min(54vh,480px)}
+.project-visuals a{display:block;overflow:hidden;border:1px solid #2d2d29;background:#151513}
+.project-visuals img{width:100%;height:100%;object-fit:cover;display:block;filter:saturate(.9) contrast(1.03);transition:transform .7s var(--ease)}
+.project-visuals a:hover img{transform:scale(1.035)}
+
+@media(max-width:900px){
+  .impact-copy h2{font-size:clamp(44px,12.8vw,68px);line-height:.92}
+  .proof{padding:5vh 0}
+  .proof h2{font-size:clamp(38px,10.8vw,52px);margin-bottom:34px;text-align:center;word-break:keep-all}
+  .proof-grid{grid-template-columns:1fr;width:min(100%,560px);margin:0 auto}
+  .proof-item{min-height:0;padding:15px 0;border-right:0;border-bottom:1px solid #333;display:grid;grid-template-columns:34px 1fr;align-items:center;text-align:left}
+  .proof-item strong{font-size:clamp(20px,5.8vw,27px)}
+  .project-feature{grid-template-columns:1fr;gap:28px;text-align:center}
+  .project-title h2{font-size:clamp(40px,11vw,56px)}
+  .project-visuals{height:260px;grid-template-columns:1.2fr .8fr;gap:6px}
+}
+@media(max-width:560px){
+  .project-visuals{height:210px}
+  .impact-copy h2{font-size:clamp(40px,12vw,56px)}
+}
+
 .contact{display:flex;flex-direction:column;justify-content:center}
 .contact h2{font-size:clamp(68px,8vw,130px);line-height:.87;letter-spacing:-.076em;margin:0;font-weight:900}
 .contact-info{margin-top:8vh;display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid #353532}
@@ -687,35 +729,9 @@ a{color:inherit}
   </div>
 </section>
 
-<section class="slide">
-  <div class="frame">
-    <div class="top" data-reveal style="--d:0"><div class="wordmark">PEOPLEENT</div><div class="page"></div></div>
-    <div class="reason">
-      <h2 data-reveal style="--d:1">발표 직전에도<br><span class="accent">자료는 바뀝니다.</span></h2>
-      <div class="reason-grid">
-        <div class="reason-item" data-reveal style="--d:2"><b>01</b><strong>발표자료 수정</strong></div>
-        <div class="reason-item" data-reveal style="--d:3"><b>02</b><strong>화면 전환</strong></div>
-        <div class="reason-item" data-reveal style="--d:4"><b>03</b><strong>백업본 준비</strong></div>
-      </div>
-    </div>
-    <div class="bottom" data-reveal style="--d:5"><span>ON SITE</span><span>PEOPLEENT</span></div>
-  </div>
-</section>
 
-<section class="slide light">
-  <div class="frame">
-    <div class="top" data-reveal style="--d:0"><div class="wordmark">PEOPLEENT</div><div class="page">WHY</div></div>
-    <div class="reason">
-      <h2 data-reveal style="--d:1">행사 운영부터<br><span class="accent">송출 · 촬영까지.</span></h2>
-      <div class="reason-grid">
-        <div class="reason-item" data-reveal style="--d:2"><b>01</b><strong>행사 운영</strong></div>
-        <div class="reason-item" data-reveal style="--d:3"><b>02</b><strong>온라인 송출</strong></div>
-        <div class="reason-item" data-reveal style="--d:4"><b>03</b><strong>촬영 · 기록</strong></div>
-      </div>
-    </div>
-    <div class="bottom" data-reveal style="--d:5"><span>WHY PEOPLEENT</span><span>PEOPLEENT</span></div>
-  </div>
-</section>
+
+
 
 <section class="slide light">
   <div class="frame">
@@ -738,35 +754,9 @@ a{color:inherit}
   </div>
 </section>
 
-<section class="slide light">
-  <div class="frame">
-    <div class="top" data-reveal style="--d:0"><div class="wordmark">PEOPLEENT</div><div class="page"></div></div>
-    <div class="reason">
-      <h2 data-reveal style="--d:1">송출은<br><span class="accent">끊기지 않아야 합니다.</span></h2>
-      <div class="reason-grid">
-        <div class="reason-item" data-reveal style="--d:2"><b>01</b><strong>회선 점검</strong></div>
-        <div class="reason-item" data-reveal style="--d:3"><b>02</b><strong>실시간 모니터링</strong></div>
-        <div class="reason-item" data-reveal style="--d:4"><b>03</b><strong>예비 송출 준비</strong></div>
-      </div>
-    </div>
-    <div class="bottom" data-reveal style="--d:5"><span>LIVE OPERATION</span><span>PEOPLEENT</span></div>
-  </div>
-</section>
 
-<section class="slide">
-  <div class="frame">
-    <div class="top" data-reveal style="--d:0"><div class="wordmark">PEOPLEENT</div><div class="page"></div></div>
-    <div class="reason">
-      <h2 data-reveal style="--d:1">운영과 기술을<br><span class="accent">따로 보지 않습니다.</span></h2>
-      <div class="reason-grid">
-        <div class="reason-item" data-reveal style="--d:2"><b>01</b><strong>현장 진행</strong></div>
-        <div class="reason-item" data-reveal style="--d:3"><b>02</b><strong>음향 · 영상</strong></div>
-        <div class="reason-item" data-reveal style="--d:4"><b>03</b><strong>송출 대응</strong></div>
-      </div>
-    </div>
-    <div class="bottom" data-reveal style="--d:5"><span>WHY PEOPLEENT</span><span>PEOPLEENT</span></div>
-  </div>
-</section>
+
+
 
 <section class="slide">
   <div class="frame">
@@ -788,20 +778,7 @@ a{color:inherit}
   </div>
 </section>
 
-<section class="slide">
-  <div class="frame">
-    <div class="top" data-reveal style="--d:0"><div class="wordmark">PEOPLEENT</div><div class="page"></div></div>
-    <div class="reason">
-      <h2 data-reveal style="--d:1">행사 후에도<br><span class="accent">결과는 남아야 합니다.</span></h2>
-      <div class="reason-grid">
-        <div class="reason-item" data-reveal style="--d:2"><b>01</b><strong>녹화본</strong></div>
-        <div class="reason-item" data-reveal style="--d:3"><b>02</b><strong>현장 사진</strong></div>
-        <div class="reason-item" data-reveal style="--d:4"><b>03</b><strong>편집 · 아카이브</strong></div>
-      </div>
-    </div>
-    <div class="bottom" data-reveal style="--d:5"><span>AFTER EVENT</span><span>PEOPLEENT</span></div>
-  </div>
-</section>
+
 
 <section class="slide light">
   <div class="frame">
@@ -823,20 +800,33 @@ a{color:inherit}
   </div>
 </section>
 
-<section class="slide">
+<section class="slide impact-slide">
+  <div class="impact-media"><img src="https://cdn.imweb.me/thumbnail/20260415/ab1c31b7580fe.jpg" alt="피플엔트 행사 현장" loading="lazy"></div>
   <div class="frame">
-    <div class="top" data-reveal style="--d:0"><div class="wordmark">PEOPLEENT</div><div class="page">WHY</div></div>
-    <div class="reason">
-      <h2 data-reveal style="--d:1">준비부터<br><span class="accent">결과물까지.</span></h2>
-      <div class="reason-grid">
-        <div class="reason-item" data-reveal style="--d:2"><b>01</b><strong>사전 준비</strong></div>
-        <div class="reason-item" data-reveal style="--d:3"><b>02</b><strong>현장 진행</strong></div>
-        <div class="reason-item" data-reveal style="--d:4"><b>03</b><strong>결과물 정리</strong></div>
-      </div>
+    <div class="top" data-reveal style="--d:0"><div class="wordmark">PEOPLEENT</div><div class="page"></div></div>
+    <div class="impact-copy">
+      <h2 data-reveal style="--d:1">행사는<br><span class="accent">다시 할 수 없습니다.</span></h2>
     </div>
-    <div class="bottom" data-reveal style="--d:5"><span>WHY PEOPLEENT</span><span>PEOPLEENT</span></div>
+    <div class="bottom" data-reveal style="--d:2"><span>ON SITE</span><span>PEOPLEENT</span></div>
   </div>
 </section>
+
+<section class="slide">
+  <div class="frame">
+    <div class="top" data-reveal style="--d:0"><div class="wordmark">PEOPLEENT</div><div class="page"></div></div>
+    <div class="proof">
+      <h2 data-reveal style="--d:1">당일을 위해<br><span class="accent">미리 준비합니다.</span></h2>
+      <div class="proof-grid">
+        <div class="proof-item" data-reveal style="--d:2"><b>01</b><strong>사전 점검</strong></div>
+        <div class="proof-item" data-reveal style="--d:3"><b>02</b><strong>리허설</strong></div>
+        <div class="proof-item" data-reveal style="--d:4"><b>03</b><strong>백업 준비</strong></div>
+      </div>
+    </div>
+    <div class="bottom" data-reveal style="--d:5"><span>PREPARATION</span><span>PEOPLEENT</span></div>
+  </div>
+</section>
+
+
 
 <section class="slide">
   <div class="frame">
@@ -875,33 +865,23 @@ a{color:inherit}
   </div>
 </section>
 
+
+
+
+
 <section class="slide">
   <div class="frame">
-    <div class="top" data-reveal style="--d:0"><div class="wordmark">PEOPLEENT</div><div class="page">WHY</div></div>
-    <div class="reason">
-      <h2 data-reveal style="--d:1">행사마다<br><span class="accent">운영 방식이 다릅니다.</span></h2>
-      <div class="reason-grid">
-        <div class="reason-item" data-reveal style="--d:2"><b>01</b><strong>공공기관</strong></div>
-        <div class="reason-item" data-reveal style="--d:3"><b>02</b><strong>기업 · 학회</strong></div>
-        <div class="reason-item" data-reveal style="--d:4"><b>03</b><strong>병원 · 세미나</strong></div>
-      </div>
-    </div>
-    <div class="bottom" data-reveal style="--d:5"><span>WHY PEOPLEENT</span><span>PEOPLEENT</span></div>
-  </div>
-</section>
-
-<section class="slide light">
-  <div class="frame">
     <div class="top" data-reveal style="--d:0"><div class="wordmark">PEOPLEENT</div><div class="page"></div></div>
-    <div class="reason">
-      <h2 data-reveal style="--d:1">당일 실수는<br><span class="accent">다시 돌릴 수 없습니다.</span></h2>
-      <div class="reason-grid">
-        <div class="reason-item" data-reveal style="--d:2"><b>01</b><strong>사전 체크</strong></div>
-        <div class="reason-item" data-reveal style="--d:3"><b>02</b><strong>리허설</strong></div>
-        <div class="reason-item" data-reveal style="--d:4"><b>03</b><strong>백업 준비</strong></div>
+    <div class="project-feature">
+      <div class="project-title">
+        <h2 data-reveal style="--d:1">주요<br><span class="accent">프로젝트.</span></h2>
+      </div>
+      <div class="project-visuals">
+        <a data-reveal style="--d:2" href="https://peopleent.com/gallery" target="_blank" rel="noopener"><img src="https://cdn.imweb.me/thumbnail/20260415/b24290d218202.jpg" alt="피플엔트 프로젝트" loading="lazy"></a>
+        <a data-reveal style="--d:3" href="https://peopleent.com/gallery" target="_blank" rel="noopener"><img src="https://cdn.imweb.me/thumbnail/20260506/4138baabbdb2e.jpg" alt="피플엔트 프로젝트" loading="lazy"></a>
       </div>
     </div>
-    <div class="bottom" data-reveal style="--d:5"><span>WHY PEOPLEENT</span><span>PEOPLEENT</span></div>
+    <div class="bottom" data-reveal style="--d:4"><span>SELECTED PROJECTS</span><span>PEOPLEENT</span></div>
   </div>
 </section>
 
