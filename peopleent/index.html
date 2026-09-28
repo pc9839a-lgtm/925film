@@ -916,6 +916,44 @@ a{color:inherit}
 @media(prefers-reduced-motion:reduce){
   *,*::before,*::after{animation:none!important;transition-duration:.01ms!important;scroll-behavior:auto!important}
 }
+
+/* mobile proof rows — compact aligned list */
+@media(max-width:900px){
+  .proof-grid{
+    grid-template-columns:1fr;
+    grid-auto-rows:92px;
+    width:min(100%,560px);
+    margin:0 auto;
+  }
+  .proof-item,
+  .proof-item:first-child,
+  .proof-item:last-child{
+    min-height:92px!important;
+    height:92px;
+    padding:0 16px!important;
+    display:grid!important;
+    grid-template-columns:40px minmax(0,1fr)!important;
+    align-items:center!important;
+    gap:12px!important;
+    border-right:0;
+    border-bottom:1px solid #343430;
+    text-align:left;
+  }
+  .proof-item:last-child{border-bottom:0}
+  .proof-item b{
+    margin:0!important;
+    font-size:10px!important;
+    line-height:1;
+    align-self:center;
+  }
+  .proof-item strong{
+    margin:0;
+    font-size:clamp(21px,5.8vw,27px)!important;
+    line-height:1.08;
+    align-self:center;
+  }
+}
+
 </style>
 </head>
 <body>
