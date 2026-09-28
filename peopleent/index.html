@@ -334,7 +334,41 @@ a{color:inherit}
   width:100%;
   height:100%;
 }
-.proof-head{margin-bottom:58px;text-align:center}
+.proof-head{margin-bottom:42px;text-align:center}
+.promo-note{
+  width:max-content;
+  max-width:100%;
+  margin:0 auto 26px;
+  padding:11px 18px 10px;
+  border:1px solid rgba(255,255,255,.16);
+  background:rgba(255,255,255,.035);
+  text-align:center;
+  backdrop-filter:blur(8px)
+}
+.promo-note b{
+  display:block;
+  margin-bottom:5px;
+  font-size:10px;
+  letter-spacing:.18em;
+  font-weight:800;
+  color:var(--accent)
+}
+.promo-note strong{
+  display:block;
+  font-size:clamp(16px,1.35vw,20px);
+  line-height:1.35;
+  letter-spacing:-.025em;
+  font-weight:700;
+  color:#f3f3ef;
+  word-break:keep-all
+}
+.promo-note span{
+  display:block;
+  margin-top:4px;
+  font-size:11px;
+  letter-spacing:.06em;
+  color:#8e8e88
+}
 .proof h2{
   margin:0 auto;
   max-width:1080px;
@@ -384,9 +418,16 @@ a{color:inherit}
 @media(max-width:900px){
   .proof{justify-content:center}
   .proof-head{
-    margin-bottom:42px;
+    margin-bottom:34px;
     text-align:center;
   }
+  .promo-note{
+    margin-bottom:20px;
+    padding:10px 14px 9px;
+  }
+  .promo-note b{font-size:8px}
+  .promo-note strong{font-size:15px}
+  .promo-note span{font-size:10px}
   .proof h2{
     font-size:clamp(38px,10.8vw,54px);
     line-height:.94;
@@ -978,6 +1019,11 @@ a{color:inherit}
     <div class="top" data-reveal style="--d:0"><div class="wordmark">PEOPLEENT</div><div class="page"></div></div>
     <div class="proof">
       <div class="proof-head">
+        <div class="promo-note" data-reveal style="--d:1">
+          <b>2026 REMAINING DATES</b>
+          <strong>2026년 잔여 일정 한정 행사 운영 특별가 적용</strong>
+          <span>선착순 마감</span>
+        </div>
         <h2 data-reveal style="--d:1">사전 점검 리허설 백업<br><span class="accent">운영 전 체크 완료</span></h2>
       </div>
       <div class="proof-grid">
