@@ -472,6 +472,30 @@ a{color:inherit}
   color:#fff;
   backdrop-filter:blur(14px);
   box-shadow:0 10px 30px rgba(0,0,0,.24);
+  overflow:hidden;
+  animation:promoEnter .72s var(--ease) both;
+}
+.promo-fixed::before{
+  content:"";
+  position:absolute;
+  top:0;
+  bottom:0;
+  left:-32%;
+  width:22%;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,.14),transparent);
+  transform:skewX(-18deg);
+  pointer-events:none;
+  animation:promoSweep 5.2s ease-in-out 1.2s infinite;
+}
+@keyframes promoEnter{
+  from{opacity:0;transform:translateY(16px)}
+  to{opacity:1;transform:translateY(0)}
+}
+@keyframes promoSweep{
+  0%,68%{left:-32%;opacity:0}
+  74%{opacity:1}
+  88%{left:112%;opacity:.9}
+  100%{left:112%;opacity:0}
 }
 .promo-fixed .promo-main{
   display:flex;
@@ -494,12 +518,20 @@ a{color:inherit}
   white-space:nowrap;
   overflow:hidden;
   text-overflow:ellipsis;
+  animation:promoTextPulse 3.8s ease-in-out infinite;
+}
+@keyframes promoTextPulse{
+  0%,100%{opacity:1}
+  50%{opacity:.72}
 }
 .promo-fixed span{
   flex:0 0 auto;
   font-size:11px;
   color:#9a9a94;
   white-space:nowrap;
+}
+@media (prefers-reduced-motion: reduce){
+  .promo-fixed,.promo-fixed::before,.promo-fixed strong{animation:none!important}
 }
 .nav{position:fixed;right:22px;top:50%;transform:translateY(-50%);z-index:20;display:flex;flex-direction:column;gap:9px}
 .dot{width:6px;height:6px;border-radius:50%;background:#595955;border:0;padding:0;cursor:pointer;transition:.25s}
