@@ -334,41 +334,7 @@ a{color:inherit}
   width:100%;
   height:100%;
 }
-.proof-head{margin-bottom:42px;text-align:center}
-.promo-note{
-  width:max-content;
-  max-width:100%;
-  margin:0 auto 26px;
-  padding:11px 18px 10px;
-  border:1px solid rgba(255,255,255,.16);
-  background:rgba(255,255,255,.035);
-  text-align:center;
-  backdrop-filter:blur(8px)
-}
-.promo-note b{
-  display:block;
-  margin-bottom:5px;
-  font-size:10px;
-  letter-spacing:.18em;
-  font-weight:800;
-  color:var(--accent)
-}
-.promo-note strong{
-  display:block;
-  font-size:clamp(16px,1.35vw,20px);
-  line-height:1.35;
-  letter-spacing:-.025em;
-  font-weight:700;
-  color:#f3f3ef;
-  word-break:keep-all
-}
-.promo-note span{
-  display:block;
-  margin-top:4px;
-  font-size:11px;
-  letter-spacing:.06em;
-  color:#8e8e88
-}
+.proof-head{margin-bottom:58px;text-align:center}
 .proof h2{
   margin:0 auto;
   max-width:1080px;
@@ -418,16 +384,9 @@ a{color:inherit}
 @media(max-width:900px){
   .proof{justify-content:center}
   .proof-head{
-    margin-bottom:34px;
+    margin-bottom:42px;
     text-align:center;
   }
-  .promo-note{
-    margin-bottom:20px;
-    padding:10px 14px 9px;
-  }
-  .promo-note b{font-size:8px}
-  .promo-note strong{font-size:15px}
-  .promo-note span{font-size:10px}
   .proof h2{
     font-size:clamp(38px,10.8vw,54px);
     line-height:.94;
@@ -496,6 +455,52 @@ a{color:inherit}
 .contact-cta:hover{transform:translateY(-2px);filter:brightness(1.06)}
 .contact-cta .arr{font-size:17px}
 
+.promo-fixed{
+  position:fixed;
+  left:20px;
+  right:172px;
+  bottom:20px;
+  z-index:35;
+  min-height:50px;
+  padding:0 18px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:18px;
+  border:1px solid rgba(255,255,255,.14);
+  background:rgba(9,9,9,.9);
+  color:#fff;
+  backdrop-filter:blur(14px);
+  box-shadow:0 10px 30px rgba(0,0,0,.24);
+}
+.promo-fixed .promo-main{
+  display:flex;
+  align-items:center;
+  gap:14px;
+  min-width:0;
+}
+.promo-fixed b{
+  flex:0 0 auto;
+  font-size:10px;
+  letter-spacing:.15em;
+  color:var(--accent);
+}
+.promo-fixed strong{
+  min-width:0;
+  font-size:14px;
+  line-height:1.25;
+  letter-spacing:-.02em;
+  font-weight:800;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+.promo-fixed span{
+  flex:0 0 auto;
+  font-size:11px;
+  color:#9a9a94;
+  white-space:nowrap;
+}
 .nav{position:fixed;right:22px;top:50%;transform:translateY(-50%);z-index:20;display:flex;flex-direction:column;gap:9px}
 .dot{width:6px;height:6px;border-radius:50%;background:#595955;border:0;padding:0;cursor:pointer;transition:.25s}
 .dot.on{background:var(--accent);transform:scale(1.75)}
@@ -512,7 +517,29 @@ a{color:inherit}
     padding:16px 0 14px;
     grid-template-rows:32px 1fr;
   }
-  .bottom{display:none!important}
+  .promo-fixed{
+    left:10px;
+    right:10px;
+    bottom:72px;
+    min-height:48px;
+    padding:9px 12px;
+    gap:10px;
+  }
+  .promo-fixed .promo-main{
+    gap:8px;
+    flex:1;
+  }
+  .promo-fixed b{
+    font-size:8px;
+    letter-spacing:.1em;
+  }
+  .promo-fixed strong{
+    font-size:12px;
+  }
+  .promo-fixed span{
+    font-size:9px;
+  }
+    .bottom{display:none!important}
   .nav{display:none!important}
   .top{padding-bottom:10px}
   .wordmark{font-size:12px;letter-spacing:.11em}
@@ -1019,11 +1046,6 @@ a{color:inherit}
     <div class="top" data-reveal style="--d:0"><div class="wordmark">PEOPLEENT</div><div class="page"></div></div>
     <div class="proof">
       <div class="proof-head">
-        <div class="promo-note" data-reveal style="--d:1">
-          <b>2026 REMAINING DATES</b>
-          <strong>2026년 잔여 일정 한정 행사 운영 특별가 적용</strong>
-          <span>선착순 마감</span>
-        </div>
         <h2 data-reveal style="--d:1">사전 점검 리허설 백업<br><span class="accent">운영 전 체크 완료</span></h2>
       </div>
       <div class="proof-grid">
@@ -1143,6 +1165,13 @@ a{color:inherit}
   <button class="arrowBtn" id="next" aria-label="다음">↓</button>
 </div>
 <div class="hint">SCROLL / KEY</div>
+<div class="promo-fixed" aria-label="2026 잔여 일정 프로모션">
+  <div class="promo-main">
+    <b>2026 REMAINING DATES</b>
+    <strong>2026년 잔여 일정 한정 행사 운영 특별가 적용</strong>
+  </div>
+  <span>선착순 마감</span>
+</div>
 <a class="contact-cta" id="globalContactCta" href="https://peopleent.com/contact" target="_blank" rel="noopener">문의하기 <span class="arr">↗</span></a>
 <div class="progress" id="progress"></div>
 
