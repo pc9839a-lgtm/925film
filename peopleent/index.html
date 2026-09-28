@@ -283,13 +283,13 @@ a{color:inherit}
 .chapter-photo.in-view .chapter-media img{transform:scale(1)}
 .chapter-photo::after{
   content:"";position:absolute;inset:0;z-index:0;
-  background:linear-gradient(90deg,rgba(0,0,0,.72) 0%,rgba(0,0,0,.28) 48%,rgba(0,0,0,.18) 100%)
+  background:linear-gradient(180deg,rgba(0,0,0,.38) 0%,rgba(0,0,0,.58) 50%,rgba(0,0,0,.42) 100%)
 }
 .chapter-photo .frame{z-index:2;color:#fff}
-.chapter-copy{display:flex;align-items:center}
+.chapter-copy{display:flex;align-items:center;justify-content:center;text-align:center;width:100%}
 .chapter-copy h2{
-  margin:0;font-size:clamp(68px,8.8vw,144px);line-height:.86;
-  letter-spacing:-.078em;font-weight:900;max-width:1180px;text-wrap:balance
+  margin:0 auto;font-size:clamp(64px,8.2vw,132px);line-height:.9;
+  letter-spacing:-.074em;font-weight:900;max-width:1120px;text-wrap:balance;word-break:keep-all
 }
 .chapter-copy .accent{display:block}
 
@@ -297,15 +297,16 @@ a{color:inherit}
 .chapter-live .top,.chapter-live .bottom{border-color:rgba(0,0,0,.28);color:#171717}
 .chapter-live .page{color:rgba(0,0,0,.55)}
 .chapter-live-wrap{
-  display:grid;grid-template-columns:1.1fr .9fr;align-items:center;gap:6vw;width:100%
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  gap:30px;width:100%;text-align:center
 }
 .chapter-live .live-word{
-  margin:0;font-size:clamp(110px,16vw,260px);line-height:.72;
+  margin:0;font-size:clamp(92px,13vw,210px);line-height:.72;
   letter-spacing:-.09em;font-weight:900;color:#0a0a0a
 }
 .chapter-live h2{
-  margin:0;font-size:clamp(46px,5.8vw,92px);line-height:.92;
-  letter-spacing:-.065em;font-weight:900;color:#0a0a0a;word-break:keep-all
+  margin:0;font-size:clamp(48px,6vw,94px);line-height:.94;
+  letter-spacing:-.064em;font-weight:900;color:#0a0a0a;word-break:keep-all;text-wrap:balance
 }
 
 @media(max-width:900px){
@@ -333,13 +334,16 @@ a{color:inherit}
   width:100%;
   height:100%;
 }
-.proof-head{margin-bottom:72px}
+.proof-head{margin-bottom:58px;text-align:center}
 .proof h2{
-  margin:0;
+  margin:0 auto;
+  max-width:1080px;
   font-size:clamp(58px,6.35vw,102px);
   line-height:.92;
   letter-spacing:-.064em;
   font-weight:900;
+  word-break:keep-all;
+  text-wrap:balance;
 }
 .proof h2 .accent{
   display:block;
@@ -409,9 +413,10 @@ a{color:inherit}
   }
 }
 
-.project-feature{display:grid;grid-template-columns:.64fr 1.36fr;gap:5vw;align-items:center;width:100%}
-.project-title h2{margin:0;font-size:clamp(54px,6.8vw,108px);line-height:.9;letter-spacing:-.072em;font-weight:900}
-.project-visuals{display:grid;grid-template-columns:1.35fr .65fr;gap:12px;height:min(54vh,480px)}
+.project-feature{display:flex;flex-direction:column;justify-content:center;align-items:center;gap:44px;width:100%;text-align:center}
+.project-title{width:100%}
+.project-title h2{margin:0 auto;font-size:clamp(58px,7.2vw,116px);line-height:.9;letter-spacing:-.072em;font-weight:900;max-width:1100px;word-break:keep-all;text-wrap:balance}
+.project-visuals{display:grid;grid-template-columns:1.35fr .65fr;gap:12px;width:min(920px,78vw);height:min(31vh,300px)}
 .project-visuals a{display:block;overflow:hidden;border:1px solid #2d2d29;background:#151513}
 .project-visuals img{width:100%;height:100%;object-fit:cover;display:block;filter:saturate(.9) contrast(1.03);transition:transform .7s var(--ease)}
 .project-visuals a:hover img{transform:scale(1.035)}
@@ -870,7 +875,7 @@ a{color:inherit}
   <div class="frame">
     <div class="top" data-reveal style="--d:0"><div class="wordmark">PEOPLEENT</div><div class="page"></div></div>
     <div class="chapter-copy">
-      <h2 data-reveal style="--d:1">진행 · 음향 · 영상<br><span class="accent">ON SITE.</span></h2>
+      <h2 data-reveal style="--d:1">여러 파트가 움직여도,<br><span class="accent">현장은 하나의 흐름으로.</span></h2>
     </div>
     <div class="bottom" data-reveal style="--d:2"><span>EVENT OPERATION</span><span>PEOPLEENT</span></div>
   </div>
@@ -905,7 +910,7 @@ a{color:inherit}
     <div class="top" data-reveal style="--d:0"><div class="wordmark">PEOPLEENT</div><div class="page"></div></div>
     <div class="chapter-live-wrap">
       <div class="live-word" data-reveal style="--d:1">LIVE.</div>
-      <h2 data-reveal style="--d:2">송출 · 웨비나 · 하이브리드<br><span class="accent">LIVE.</span></h2>
+      <h2 data-reveal style="--d:2">현장과 온라인을,<br>동시에 연결합니다.</h2>
     </div>
     <div class="bottom" data-reveal style="--d:3"><span>LIVE & HYBRID</span><span>PEOPLEENT</span></div>
   </div>
@@ -960,7 +965,7 @@ a{color:inherit}
   <div class="frame">
     <div class="top" data-reveal style="--d:0"><div class="wordmark">PEOPLEENT</div><div class="page"></div></div>
     <div class="chapter-copy">
-      <h2 data-reveal style="--d:1">촬영 · 기록 · 디자인<br><span class="accent">OUTPUT.</span></h2>
+      <h2 data-reveal style="--d:1">행사가 끝난 뒤에도,<br><span class="accent">결과는 남아야 합니다.</span></h2>
     </div>
     <div class="bottom" data-reveal style="--d:2"><span>RECORD · DESIGN</span><span>PEOPLEENT</span></div>
   </div>
@@ -973,7 +978,7 @@ a{color:inherit}
     <div class="top" data-reveal style="--d:0"><div class="wordmark">PEOPLEENT</div><div class="page"></div></div>
     <div class="proof">
       <div class="proof-head">
-        <h2 data-reveal style="--d:1">EVENT OPERATION<br><span class="accent">ONE TEAM.</span></h2>
+        <h2 data-reveal style="--d:1">좋은 현장은,<br><span class="accent">시작 전에 이미 준비됩니다.</span></h2>
       </div>
       <div class="proof-grid">
         <div class="proof-item" data-reveal style="--d:2"><b>01</b><strong>사전 점검</strong></div>
@@ -1031,7 +1036,7 @@ a{color:inherit}
     <div class="top" data-reveal style="--d:0"><div class="wordmark">PEOPLEENT</div><div class="page"></div></div>
     <div class="project-feature">
       <div class="project-title">
-        <h2 data-reveal style="--d:1">SELECTED<br><span class="accent">PROJECTS.</span></h2>
+        <h2 data-reveal style="--d:1">말보다,<br><span class="accent">실제 현장으로 보여드립니다.</span></h2>
       </div>
       <div class="project-visuals">
         <a data-reveal style="--d:2" href="https://peopleent.com/gallery" target="_blank" rel="noopener"><img src="https://cdn.imweb.me/thumbnail/20260415/b24290d218202.jpg" alt="피플엔트 프로젝트" loading="lazy"></a>
