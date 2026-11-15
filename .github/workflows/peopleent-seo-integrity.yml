@@ -1,0 +1,24 @@
+name: PeopleEnt SEO integrity
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'peopleent/**'
+      - '.github/workflows/peopleent-seo-integrity.yml'
+  pull_request:
+    paths:
+      - 'peopleent/**'
+      - '.github/workflows/peopleent-seo-integrity.yml'
+  workflow_dispatch:
+jobs:
+  seo:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Validate PeopleEnt static SEO and links
+        run: node peopleent/tools/validate-insights.mjs
