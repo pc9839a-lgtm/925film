@@ -1,0 +1,23 @@
+{
+  "canonical_origin": "https://925film.pages.dev",
+  "site_path": "/peopleent/",
+  "publisher": "피플엔트 PEOPLEENT",
+  "policy": "one_article_per_day_after_quality_gate",
+  "posts": [
+    {
+      "slug": "event-estimate-checklist",
+      "title": "기업행사 대행 견적서 확인 항목 10가지",
+      "primary_query": "기업행사 대행 견적서",
+      "intent": "행사 담당자가 대행 견적의 포함 범위와 추가비용·결과물 조건을 비교한다",
+      "content_type": "구매 전 비교 체크리스트",
+      "published_at": "2026-11-15",
+      "updated_at": "2026-11-15",
+      "sources": [
+        "https://www.peopleent.com/corporate-conference-operation",
+        "https://peopleent.com/public-event-operation",
+        "https://peopleent.com/online-live-streaming"
+      ],
+      "status": "ready_for_deployment_validation"
+    }
+  ]
+}
