@@ -2,7 +2,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
-const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
+const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const insights = path.join(root, 'insights');
 const manifest = JSON.parse(fs.readFileSync(path.join(insights,'content-index.json'), 'utf8'));
 const errors = [];
